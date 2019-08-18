@@ -1,7 +1,9 @@
 # ssd_traing_export
 #######################################################
+
 # This is guide for 10 minutes training on Virtual Box.
 So it can NEVER be perfect training !!
+
 #######################################################
 
 # venv setting (you can skip !!)
