@@ -1,5 +1,7 @@
 ****vBox 에서 다시 트레이닝 시작할때***
 
+만약 ~/tf_ssd/tod/save_models 폴더에 파일이 있다면 다 지울것 !!!
+
 1. 일단 가상환경 시작
 opencv-mds@opencv-mds:~/tf_ssd$ . ./venvssd/bin/activate
 
