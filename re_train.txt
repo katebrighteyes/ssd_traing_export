@@ -1,4 +1,4 @@
-****다시 시작할때***
+****vBox 에서 다시 트레이닝 시작할때***
 
 1. 일단 가상환경 시작
 opencv-mds@opencv-mds:~/tf_ssd$ . ./venvssd/bin/activate
