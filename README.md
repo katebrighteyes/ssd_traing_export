@@ -87,6 +87,14 @@ $ protoc object_detection/protos/*.proto --python_out=.
 $ python object_detection/builders/model_builder_test.py
 
 ------------Just you can see "OK" -> it is ok !!
+------------------------------------------------------------------------
+3-2 tfrecord 준비
+
+sudo cp /media/[공유폴더이름]/tfrecord.zip ./
+
+sudo chmod 777 ./tfrecord.zip
+
+unzip tfrecord.zip
 
 ===========================================
 3-3 train model modify
