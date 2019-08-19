@@ -88,6 +88,7 @@ $ python object_detection/builders/model_builder_test.py
 
 ------------Just you can see "OK" -> it is ok !!
 ------------------------------------------------------------------------
+
 3-2 tfrecord 준비
 
 sudo cp /media/[공유폴더이름]/tfrecord.zip ./
