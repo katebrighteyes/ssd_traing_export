@@ -114,14 +114,25 @@ line: 170,184 -> path설정
 line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다. 
 
 172, 186: /home/opencv-mds/tf_ssd/tod/train_models/research/object_detection/data/mscoco_label_map.pbtxt
+
 -------------------------
-* 수정된 예
+* 수정된 config 예 : vBox에 coco_val.record 가 없어서 동일하게 coco_train.record 을 사용함.
+
   169 train_input_reader: {                                           
   170   tf_record_input_reader {                                     
-  171     input_path: "/home/opencv-mds/tf_ssd/tfrecord/coco_train.rec      ord-?????-of-00100"                                             
+  171     input_path: "/home/opencv-mds/tf_ssd/tfrecord/coco_train.record-?????-of-00100"                                             
   172   }                                                            
   173   label_map_path: "/home/opencv-mds/tf_ssd/tod/train_models/research/object_detection/data/mscoco_label_map.pbtxt"              
   174 } 
+--------------------------
+  183 eval_input_reader: {                                                                                                               
+  184   tf_record_input_reader {                                                                                                       
+  185     input_path: "/home/opencv-mds/tf_ssd/tfrecord/coco_train.record-?????-of-00100"                                               
+  186   }                                                                                                                               
+  187   label_map_path: "/home/opencv-mds/tf_ssd/tod/train_models/research/object_detection/data/mscoco_label_map.pbtxt"                 
+  188   shuffle: false                                                                                                                   
+  189   num_readers: 1                                                                                                                   
+  190 } 
 --------------------------
 
 *vBox 의 경우 메모리 여유가 없으므로 136line 의 배치 사이즈를 4로 수정 필요 !!
