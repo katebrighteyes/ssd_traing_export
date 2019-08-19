@@ -26,9 +26,11 @@ $ sudo apt-get install python3-tk
 # 2-1 models for Train
 
 mkdir tod
+
 cd tod
 
 $ git clone https://github.com/tensorflow/models.git
+
 $ mv models train_models
 
 # 2-2 models for Export
@@ -37,13 +39,16 @@ $ git clone https://github.com/tensorflow/models.git
 
 $ mv models export_models
 $ cd export_models
+
 $ git checkout ae0a9409212d0072938fa60c9f85740bb89ced7e
 
 * Don't be afraid to see Error !
 
 * please check different branch*
 $ cd research
+
 $ ls
+
 $ ls ../../train_models/research/
 
 
@@ -51,20 +56,30 @@ $ ls ../../train_models/research/
 
 -----pycocotools install -----
 $ cd ~/tf_ssd/tod/train_models/research
+
 $ export PYTHONPATH=$PYTHONPATH:/home/opencv-mds/tf_ssd/tod/train_models/research:/home/opencv-mds/tf_ssd/tod/train_models/research/slim
 
 $ git clone https://github.com/cocodataset/cocoapi.git
+
 $ cd cocoapi/PythonAPI
+
 $ make
+
 $ cp -r pycocotools ~/tf_ssd/tod/train_models/research/
 -------------------------
 -----protocbuf install -------
 $ cd ~/tf_ssd/tod/train_models/research
+
 $ curl -OL https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
+
 $ unzip protoc-3.2.0-linux-x86_64.zip -d protoc3
+
 $ sudo mv protoc3/bin/* /usr/local/bin/
+
 $ sudo mv protoc3/include/* /usr/local/include/
+
 $ protoc object_detection/protos/*.proto --python_out=.
+
 $ python object_detection/builders/model_builder_test.py
 
 ------------Just you can see "OK" -> it is ok !!
@@ -88,9 +103,11 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 3-4 train
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
 mkdir ~/tf_ssd/tod/save_models/ 
+
 mkdir ~/tf_ssd/tod/save_models/coco_test
 
 $ PIPELINE_CONFIG_PATH='/home/opencv-mds/tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
+
 $ MODEL_DIR='/home/opencv-mds/tf_ssd/tod/save_models/coco_test'
 
 *vBox 의 경우 저장공간도 부족 !!
