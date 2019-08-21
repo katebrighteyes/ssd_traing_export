@@ -118,7 +118,7 @@ line 101: override 부분 주석
 $ INPUT_TYPE=image_tensor
 
 -----------------------------
-$ PIPELINE_CONFIG_PATH='/iitp_ws/tod1/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
+$ PIPELINE_CONFIG_PATH='/iitp_ws/tod1/export_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 ls /iitp_ws/tod1/save_models/coco_test/
 $ TRAINED_CKPT_PREFIX='/iitp_ws/tod1/save_models/coco_test/model.ckpt-10000'
 
