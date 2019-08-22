@@ -28,15 +28,15 @@ frozen_inference_graph.uff 가 생성되면 /workspace/tensorrt/data/ssd 폴더�
 frozen_inference_graph.uff -> sample_ssd_relu6.uff 로 변경한다.(mv)
 # mv frozen_inference_graph.uff sample_ssd_relu6.uff
 
-cp sample_ssd_relu6.uff /workspace/tensorrt/data/ssd/
+cd /workspace/tensorrt/samples/sampleUffSSD
 
-cd /workspace/tensorrt/samples/
-샘플 빌드
 소스 49라인 수정 : threshold 값을 0.25 정도로 수정한다.  
+
+샘플 빌드
 make
 
-cd bin/
-./sampleUffSSD
+cd ../bin/
+./sample_uff_ssd
 
 
 
