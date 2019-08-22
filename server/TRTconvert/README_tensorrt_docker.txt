@@ -19,19 +19,25 @@ cd /workspace/tensorrt/samples/sampleUffSSD
 
 cp /iitp_ws/config.py .
 
- convert-to-uff --input-file /data/frozen_inference_graph.pb -O NMS -p /data/config.py
+ convert-to-uff --input-file /iitp_ws/tod0/pbfiles/frozen_inference_graph.pb -O NMS -p /data/config.py
 
-===> UFF Output written to /data/frozen_inference_graph.uff
+===> UFF Output written to /iitp_ws/tod0/pbfiles/frozen_inference_graph.uff
  
-frozen_inference_graph.uff 가 생성되면 tensorrt/data/ssd 폴더로 이동시킨 후 sample_ssd_relu6.uff 로 변경한다.
+frozen_inference_graph.uff 가 생성되면 /workspace/tensorrt/data/ssd 폴더로 이동시킨 후 
 
-/data# mv frozen_inference_graph.uff sample_ssd_relu6.uff
+frozen_inference_graph.uff -> sample_ssd_relu6.uff 로 변경한다.(mv)
+# mv frozen_inference_graph.uff sample_ssd_relu6.uff
+
 cp sample_ssd_relu6.uff /workspace/tensorrt/data/ssd/
 
 cd /workspace/tensorrt/samples/
+샘플 빌드
+
+소스에서 threshold 값을 
 make
 
-cd bin/bash
+cd bin/
+./sampleUffSSD
 
 
 
