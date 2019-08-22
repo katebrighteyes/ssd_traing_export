@@ -32,8 +32,7 @@ cp sample_ssd_relu6.uff /workspace/tensorrt/data/ssd/
 
 cd /workspace/tensorrt/samples/
 샘플 빌드
-
-소스에서 threshold 값을 
+소스 49라인 수정 : threshold 값을 0.25 정도로 수정한다.  
 make
 
 cd bin/
