@@ -19,7 +19,7 @@ cd /workspace/tensorrt/samples/sampleUffSSD
 
 cp /iitp_ws/config.py .
 
- convert-to-uff --input-file /iitp_ws/tod0/pbfiles/frozen_inference_graph.pb -O NMS -p /data/config.py
+ convert-to-uff --input-file /iitp_ws/tod0/pbfiles/frozen_inference_graph.pb -O NMS -p ./config.py
 
 ===> UFF Output written to /iitp_ws/tod0/pbfiles/frozen_inference_graph.uff
  
