@@ -30,12 +30,19 @@ frozen_inference_graph.uff -> sample_ssd_relu6.uff 로 변경한다.(mv)
 
 cd /workspace/tensorrt/samples/sampleUffSSD
 
+vim sampleUffSSD.cpp
+
 소스 49라인 수정 : threshold 값을 0.25 정도로 수정한다.  
 
+
 샘플 빌드
+
+cd /workspace/tensorrt/samples/
+
 make
 
 cd ../bin/
+rm *.ppm
 ./sample_uff_ssd
 
 
