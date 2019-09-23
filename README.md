@@ -23,8 +23,11 @@ source venvssd/bin/activate
 
 pip install tensorflow==1.12.0 Cython contextlib2 matplotlib pillow lxml 
 
+
 $ sudo apt-get update
+
 $ sudo apt-get install python3-tk
+
 
 # 2-1 models for Train
 
