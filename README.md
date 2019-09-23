@@ -95,7 +95,7 @@ $ python object_detection/builders/model_builder_test.py
 ------------Just you can see "OK" -> it is ok !!
 ------------------------------------------------------------------------
 
-3-2 tfrecord 준비
+# 3-2 tfrecord 준비
 
 sudo cp /media/[공유폴더이름]/tfrecord.zip ./
 
@@ -104,7 +104,7 @@ sudo chmod 777 ./tfrecord.zip
 unzip tfrecord.zip
 
 ===========================================
-3-3 train model modify
+# 3-3 train model modify
 
 $ vim ~/tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config
 line: 151, 152 -> 주석(#) 처리
@@ -144,7 +144,7 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 *vBox 의 경우 메모리 여유가 없으므로 136line 의 배치 사이즈를 4로 수정 필요 !!
 
 
-3-4 train
+# 3-4 train
 
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
 
