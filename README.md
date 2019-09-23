@@ -8,10 +8,13 @@ So it can NEVER be perfect training !!
 
 # venv setting (you can skip !!)
 sudo apt install protobuf-compiler python3-tk -y
+
 pip3 install virtualenv
 
 mkdir tf_ssd
+
 cd tf_ssd
+
 virtualenv venvssd
 
 source venvssd/bin/activate
