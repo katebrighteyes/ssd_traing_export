@@ -217,6 +217,7 @@ $ TRAINED_CKPT_PREFIX='/home/opencv-mds/tf_ssd/tod/save_models/coco_test/model.c
 mkdir ~/tf_ssd/tod/pbfiles
 
 ========================
+
 $ EXPORT_DIR='/home/opencv-mds/tf_ssd/tod/pbfiles'
 
 $ python object_detection/export_inference_graph.py \
