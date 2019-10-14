@@ -1,4 +1,4 @@
-<ssd0>
+<ssd2>
 sudo NV_GPU=2 nvidia-docker run --name TFSSD2 -it -d --net=host \
  -v "/drv3/tf_ssd/share:/ssd_ws" \
  nvcr.io/nvidia/tensorflow:18.08-py3
