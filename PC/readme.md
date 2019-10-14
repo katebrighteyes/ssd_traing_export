@@ -45,13 +45,13 @@ $ git clone https://github.com/tensorflow/models.git
 $ mv models train_models
 
 
-$ ls ../../train_models/research/
+$ ls ./train_models/research/
 
 2-3 pycocotools, protocbuf install
 
 -----pycocotools install -----
 
-$ cd ~/tf_ssd/tod/train_models/research
+$ cd ./train_models/research
 
 $ export PYTHONPATH=$PYTHONPATH:/home/nvidia/tf_ssd/train_models/research:/home/nvidia/tf_ssd/train_models/research/slim
 
@@ -61,11 +61,12 @@ $ cd cocoapi/PythonAPI
 
 $ make
 
-$ cp -r pycocotools ~/tf_ssd/train_models/research/
+$ cp -r pycocotools /home/nvidia/tf_ssd/train_models/research/
+
 
 -----protocbuf install -------
 
-$ cd ~/tf_ssd/train_models/research
+$ cd /home/nvidia/tf_ssd/train_models/research
 
 $ curl -OL https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
 
@@ -80,6 +81,7 @@ $ protoc object_detection/protos/*.proto --python_out=.
 $ python object_detection/builders/model_builder_test.py
 
 ------------Just you can see "OK" -> it is ok !!
+
 
 # 3-2 tfrecord 준비
 
