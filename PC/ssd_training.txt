@@ -11,15 +11,20 @@ $ apt-get update
 $ apt-get install python3-tk
 $ pip install --user contextlib2
 =======================================================================================================================
-1-2. scp tfrecord (small size) from teacher's device
+1-2. scp tfrecord (small size) from teacher's device to you ~/workspace
+
+cd
+cd workspace
+
+scp nvidia@192.168. :/home/nvidia/.zip ./
+
+cd
 
 =======================================================================================================================
 
 2-1 Train용
 
 $ cd /tod_ws
-mkdir tod0
-cd tod0
 
 $ git clone https://github.com/tensorflow/models.git
 $ mv models train_models
@@ -27,19 +32,21 @@ $ mv models train_models
 ===============================================================
 
 2-3 pycocotools, protocbuf 설치
------pycocotools 설치-----
-$ cd /iitp_ws/tod0/train_models/research
 
-$ export PYTHONPATH=$PYTHONPATH:/iitp_ws/tod0/train_models/research:/iitp_ws/tod0/train_models/research/slim
+-----pycocotools 설치-----
+
+$ cd /tod_ws/train_models/research
+
+$ export PYTHONPATH=$PYTHONPATH:/tod_ws/train_models/research:/tod_ws/train_models/research/slim
 
 $ git clone https://github.com/cocodataset/cocoapi.git
 $ cd cocoapi/PythonAPI
 $ make
-$ cp -r pycocotools /iitp_ws/tod0/train_models/research/
+$ cp -r pycocotools /tod_ws/train_models/research/
 -------------------------
 
 -----protocbuf 설치-------
-$ cd /iitp_ws/tod0/train_models/research
+$ cd /tod_ws/train_models/research
 -
 $ curl -OL https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
 $ unzip protoc-3.2.0-linux-x86_64.zip -d protoc3
@@ -57,25 +64,26 @@ OK가 뜨면 성공
 해당 모델로 train을 하기 위해서 tensorflow에서 제공해주는
 모델들의 config파일을 통해 쉽게할 수 있다.
 해당 config 파일을 우리 데이터를 학습할 수 있도록 수정하자.
-$ vim /iitp_ws/tod0/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config
+$ vim /tod_ws/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config
 
 line: 151, 152 -> 주석(#) 처리
 해당 라인은 transfer learning을 하거나 fine_tuning할 때 사용하므로 현재는 사용하지 않는다.
 
 line: 170,184 -> path설정
 해당 라인에 적혀있는 path의 tfrecord를 train하므로 우리데이터셋 경로로 바꿔주자.
-170, 184: /iitp_ws/dataset/cocodata/tfrecords/ 여기에 ms만 지우면됨
+170, 184: /tod_ws/dataset/cocodata/tfrecords/ 여기에 ms만 지우면됨
 
 line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다. 
-172, 186: /iitp_ws/tod0/train_models/research/object_detection/data/mscoco_label_map.pbtxt
+172, 186: /tod_ws/train_models/research/object_detection/data/mscoco_label_map.pbtxt
 
 3-4 train
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
-mkdir /iitp_ws/tod0/save_models/ 
-mkdir /iitp_ws/tod0/save_models/coco_test
+mkdir /tod_ws/save_models/ 
+mkdir /tod_ws/save_models/coco_test
 
-$ PIPELINE_CONFIG_PATH='/iitp_ws/tod0/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
-$ MODEL_DIR='/iitp_ws/tod0/save_models/coco_test'
+$ PIPELINE_CONFIG_PATH='/tod_ws/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
+
+$ MODEL_DIR='/tod_ws/save_models/coco_test'
 
 $ NUM_TRAIN_STEPS=10000
 $ NUM_EVAL_STEPS=100
@@ -106,7 +114,7 @@ $ git checkout ae0a9409212d0072938fa60c9f85740bb89ced7e
 *다른 브랜치 성공 확인*
 .../export_models/research# ls
 .../export_models/research# ls ../../train_models/research/
-$ cd /iitp_ws/tod0/export_models/research
+$ cd /tod_ws/export_models/research
 $ export PYTHONPATH=$PYTHONPATH:/iitp_ws/tod0/export_models/research:/iitp_ws/tod0/export_models/research/slim
 
 $ protoc object_detection/protos/*.proto --python_out=.
