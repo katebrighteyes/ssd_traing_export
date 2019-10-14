@@ -12,6 +12,8 @@ So it can NEVER be perfect training !!
 # 1. venv setting
 sudo apt install protobuf-compiler python3-tk -y
 
+sudo apt install python3-pip
+
 pip3 install virtualenv
 
 mkdir tf_ssd
