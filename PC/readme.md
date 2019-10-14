@@ -112,7 +112,9 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 172, 186: /home/nvidia/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt
 
 ++++++++++++++++++++++++++++++++++++++++++
+
 수정된 config 예 : vBox에 coco_val.record 가 없어서 동일하게 coco_train.record 을 사용함.
+
 
 169 train_input_reader: {
 170 tf_record_input_reader {
@@ -120,6 +122,7 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 172 }
 173 label_map_path: "/home/nvidia/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
 174 }
+
 
 183 eval_input_reader: {
 184 tf_record_input_reader {
@@ -129,9 +132,11 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 188 shuffle: false
 189 num_readers: 1
 190 }
+
 *vBox 의 경우 메모리 여유가 없으므로 136line 의 배치 사이즈를 4로 수정 필요 !!
 
-3-4 train
+
+# 3-4 train
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
 
 mkdir /home/nvidia/tf_ssd/save_models/
@@ -143,7 +148,7 @@ $ PIPELINE_CONFIG_PATH='/home/nvidia/tf_ssd/train_models/research/object_detecti
 $ MODEL_DIR='/home/nvidia/tf_ssd/save_models/coco_test'
 
 
-( SHORT TRAIN !! )
+( * SHORT TRAIN !! )
 
 $ NUM_TRAIN_STEPS=20
 
@@ -156,18 +161,19 @@ $ SAMPLE_1_OF_N_EVAL_EXAMPLES=1
 
 -----------------트레이닝 중에는 터미널을 빠져나가면 안됨 !!!
 
-vBox 는 gpu 가 없기 때문에 다음의 변수 지정이 필요하다고 함
+* vBox 는 gpu 가 없기 때문에 다음의 변수 지정이 필요하다고 함
 
 export TF_CPP_MIN_LOG_LEVEL=2
 
-$ python object_detection/model_main.py
---pipeline_config_path=${PIPELINE_CONFIG_PATH}
---model_dir=${MODEL_DIR}
---num_train_steps=${NUM_TRAIN_STEPS}
---num_eval_steps=${NUM_EVAL_STEPS}
---checkpoint_dir=${PRE_TRAIN}
---sample_1_of_n_eval_examples=$SAMPLE_1_OF_N_EVAL_EXAMPLES
---num_clones=1
+
+$ python object_detection/model_main.py \
+--pipeline_config_path=${PIPELINE_CONFIG_PATH} \
+--model_dir=${MODEL_DIR} \ 
+--num_train_steps=${NUM_TRAIN_STEPS} \
+--num_eval_steps=${NUM_EVAL_STEPS} \
+--checkpoint_dir=${PRE_TRAIN} \
+--sample_1_of_n_eval_examples=$SAMPLE_1_OF_N_EVAL_EXAMPLES \
+--num_clones=1 \
 --ps_tasks=1
 
 1시에 시작 10분이면 end
