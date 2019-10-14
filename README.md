@@ -28,6 +28,12 @@ $ sudo apt-get update
 
 $ sudo apt-get install python3-tk
 
+# TEST mnins
+
+# Refer
+
+https://github.com/katebrighteyes/PythonDL_Collection/blob/master/mnist/mnist_cnn.py
+
 
 # 2-1 models for Train
 
