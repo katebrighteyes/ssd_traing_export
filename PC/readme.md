@@ -172,14 +172,14 @@ $ python object_detection/model_main.py --pipeline_config_path=${PIPELINE_CONFIG
 =============================
 
 
-4 Export pb
+# 4 Export pb
 
 4-1 models for Export
 $ git clone https://github.com/tensorflow/models.git
 
 $ mv models export_models
 
-# cd export_models
+$ cd export_models
 
 $ git checkout ae0a9409212d0072938fa60c9f85740bb89ced7e
 
@@ -192,13 +192,13 @@ $ ls
 
 $ cd ~/tf_ssd/export_models/research
 
-$ export PYTHONPATH=$PYTHONPATH:/home/nvidia/tf_ssd/tod/export_models/research:/home/nvidia/tf_ssd/tod/export_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/home/nvidia/tf_ssd/export_models/research:/home/nvidia/tf_ssd/export_models/research/slim
 
 $ protoc object_detection/protos/*.proto --python_out=.
 
 $ python object_detection/builders/model_builder_test.py
 
-cp ~/tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config ./object_detection/samples/configs/
+cp ~/tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config ./object_detection/samples/configs/
 
 $ vim ./object_detection/samples/configs/ssd_inception_v2_coco.config
 
@@ -206,17 +206,18 @@ line 101: override 부분 주석
 
 $ INPUT_TYPE=image_tensor
 
-$ PIPELINE_CONFIG_PATH='/home/opencv-mds/tf_ssd/tod/export_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 
-ls /home/opencv-mds/tf_ssd/tod/save_models/coco_test/
+$ PIPELINE_CONFIG_PATH='/home/nvidia/tf_ssd/export_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 
-$ TRAINED_CKPT_PREFIX='/home/opencv-mds/tf_ssd/tod/save_models/coco_test/model.ckpt-20'
+ls /home/nvidia/tf_ssd/save_models/coco_test/
 
-mkdir ~/tf_ssd/tod/pbfiles
+$ TRAINED_CKPT_PREFIX='/home/nvidia/tf_ssd/save_models/coco_test/model.ckpt-20'
+
+mkdir ~/tf_ssd/pbfiles
 
 ========================
 
-$ EXPORT_DIR='/home/opencv-mds/tf_ssd/tod/pbfiles'
+$ EXPORT_DIR='/home/nvidia/tf_ssd/pbfiles'
 
 $ python object_detection/export_inference_graph.py
 --input_type=${INPUT_TYPE}
@@ -224,4 +225,4 @@ $ python object_detection/export_inference_graph.py
 --trained_checkpoint_prefix=${TRAINED_CKPT_PREFIX}
 --output_directory=${EXPORT_DIR}
 
-$ ls ~/tf_ssd/tod/pbfiles/
+$ ls ~/tf_ssd/pbfiles/
