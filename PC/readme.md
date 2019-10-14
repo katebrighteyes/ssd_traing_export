@@ -95,7 +95,7 @@ unzip tfrecord.zip
 
 ===========================================
 
-3-3 train model modify
+# 3-3 train model modify
 
 $ vim /home/nvidia/tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config line: 151, 152 -> 주석(#) 처리
 
@@ -150,6 +150,7 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 
 # 3-4 train
+
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
 
 mkdir /home/nvidia/tf_ssd/save_models/
@@ -174,7 +175,7 @@ $ SAMPLE_1_OF_N_EVAL_EXAMPLES=1
 
 -----------------트레이닝 중에는 터미널을 빠져나가면 안됨 !!!
 
-* vBox 는 gpu 가 없기 때문에 다음의 변수 지정이 필요하다고 함
+* gpu 가 없기 때문에 다음의 변수 지정이 필요하다고 함
 
 export TF_CPP_MIN_LOG_LEVEL=2
 
@@ -184,10 +185,23 @@ $ python object_detection/model_main.py --pipeline_config_path=${PIPELINE_CONFIG
 1시에 시작 10분이면 end
 =============================
 
+# dectivate !!!!
+
+$ deactivate
+
+# Open onother terminal
+
+$ cd
+
+$ cd tf_ssd
+
+$ source ./venvssd/bin/activate
+
 
 # 4 Export pb
 
-4-1 models for Export
+# 4-1 models for Export
+
 $ git clone https://github.com/tensorflow/models.git
 
 $ mv models export_models
@@ -198,12 +212,9 @@ $ git checkout ae0a9409212d0072938fa60c9f85740bb89ced7e
 
 Don't be afraid to see Error !
 
-please check different branch* $ cd research
+please check different branch* 
 
-$ ls
-
-
-$ cd ~/tf_ssd/export_models/research
+$ cd research
 
 $ export PYTHONPATH=$PYTHONPATH:/home/nvidia/tf_ssd/export_models/research:/home/nvidia/tf_ssd/export_models/research/slim
 
