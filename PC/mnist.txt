@@ -1,1 +1,10 @@
 # mnist test
+
+# Refer
+
+https://github.com/katebrighteyes/PythonDL_Collection/blob/master/mnist/mnist_cnn.py
+
+# Execute
+
+python mnist_cnn.py
+
