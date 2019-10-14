@@ -85,9 +85,11 @@ $ python object_detection/builders/model_builder_test.py
 
 # 3-2 tfrecord 준비
 
-sudo cp //tfrecord.zip ./
+* ctl-alt-t to open onother terminal.
 
-sudo chmod 777 ./tfrecord.zip
+cd tf_ssd/
+
+scp nvidia@192.168.10.2:/home/nvidia/TOD/tfrecord.zip ./
 
 unzip tfrecord.zip
 
