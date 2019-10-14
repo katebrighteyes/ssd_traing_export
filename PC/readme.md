@@ -117,23 +117,36 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 
 169 train_input_reader: {
+
 170 tf_record_input_reader {
+
 171 input_path: "/home/nvidia/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
+
 172 }
+
 173 label_map_path: "/home/nvidia/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
+
 174 }
 
 
 183 eval_input_reader: {
+
+
 184 tf_record_input_reader {
+
 185 input_path: "/home/nvidia/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
+
 186 }
+
 187 label_map_path: "/home/nvidia/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
+
 188 shuffle: false
+
 189 num_readers: 1
+
 190 }
 
-*vBox 의 경우 메모리 여유가 없으므로 136line 의 배치 사이즈를 4로 수정 필요 !!
+메모리 여유가 없는 경우 136line 의 배치 사이즈를 4로 수정 필요 !!
 
 
 # 3-4 train
