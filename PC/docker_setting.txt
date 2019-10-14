@@ -24,3 +24,16 @@ $ sudo apt-get update
 NVIDIA 도커2 설치
 $ sudo apt-get install -y nvidia-docker2
 $ sudo pkill -SIGHUP dockerd
+
+# Create Container
+
+sudo nvidia-docker run --name OBJ_DETECT -it -d --net=host \
+ -v "/home/nvidia/workplace:/tod_ws" \
+ nvcr.io/nvidia/tensorflow:18.08-py3
+
+# Connect to Container
+sudo docker exec -it OBJ_DETECT /bin/bash
+
+# Restart Container
+sudo docker restart OBJ_DETECT
+
