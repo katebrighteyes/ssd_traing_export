@@ -136,4 +136,5 @@ $ python object_detection/export_inference_graph.py \
 
 ==================================================
 
-TOD 7431515fddad576a2f614e90c14e1af022017311
+TOD TRAIN c92a7e169f03c8672a21e6c2172bc8e5d174115b
+TOD EXPORT ae0a9409212d0072938fa60c9f85740bb89ced7e
