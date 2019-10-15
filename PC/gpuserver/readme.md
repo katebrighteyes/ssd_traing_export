@@ -1,3 +1,6 @@
+git checkout 68c3c65596b8fc624be15aef6eac3dc8952cbf23
+
+
 # docker shared folder : gpu server folder position
 
 /ssd_ws
