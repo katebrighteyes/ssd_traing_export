@@ -1,6 +1,6 @@
 # use putty to connect to gpu server
 
-iitp_ws
+ssd_ws
 
 =
 
@@ -13,3 +13,10 @@ iitp_ws
              tod1/
              
              tod2/
+
+             tod3/
+
+             tod4/
+
+             tod5/
+
