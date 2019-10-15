@@ -3,6 +3,9 @@
 <Group 2>
 sudo NV_GPU=2 nvidia-docker run --name IITP2 -it -d --net=host \
  -v "/drv3/iitp1/share:/iitp_ws" \
+ tensorflow/tensorflow:1.12.0-gpu-py3
+ 
+ ** It is disable to train from October 2019.
  nvcr.io/nvidia/tensorflow:18.08-py3
 
 sudo docker exec -it IITP2 /bin/bash
