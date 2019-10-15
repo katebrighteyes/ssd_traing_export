@@ -1,6 +1,6 @@
 <ssd4>
 sudo NV_GPU=5 nvidia-docker run --name TFSSD5 -it -d --net=host \
- -v "/drv5/tf_ssd/share:/ssd_ws" \
+ -v "/drv3/tf_ssd/share:/ssd_ws" \
  nvcr.io/nvidia/tensorflow:18.08-py3
 
 sudo docker exec -it TFSSD5 /bin/bash
