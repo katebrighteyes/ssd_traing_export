@@ -1,4 +1,4 @@
-# ssd_traing_export
+# ssd_traing_export : Virtual Box
 #######################################################
 
 # This is guide for 10 minutes training on Virtual Box.
