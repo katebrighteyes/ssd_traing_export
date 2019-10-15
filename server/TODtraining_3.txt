@@ -105,7 +105,7 @@ $ python object_detection/model_main.py \
 <<4 Export pb>>
 
 $ cd /iitp_ws/tod3/export_models/research
-$ export PYTHONPATH=$PYTHONPATH:/iitp_ws/tod3/export_models/research:/iitp_ws/tod1/export_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/iitp_ws/tod3/export_models/research:/iitp_ws/tod3/export_models/research/slim
 
 $ protoc object_detection/protos/*.proto --python_out=.
 $ python object_detection/builders/model_builder_test.py
