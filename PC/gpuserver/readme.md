@@ -1,6 +1,6 @@
-# use putty to connect to gpu server
+# docker shared folder : gpu server folder position
 
-ssd_ws
+/ssd_ws
 
 =
 
@@ -20,3 +20,11 @@ ssd_ws
 
              tod5/
 
+
+# execute docker terminal
+
+sudo docker exec -it TFSSD0 /bin/bash
+
+# restart docker container
+
+sudo docker restart TFSSD0
