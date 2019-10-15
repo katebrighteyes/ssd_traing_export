@@ -37,7 +37,7 @@ $ git checkout ae0a9409212d0072938fa60c9f85740bb89ced7e
 
 2-3 pycocotools, protocbuf 설치
 -----pycocotools 설치-----
-$ cd /iitp_ws/tod1/train_models/research
+$ cd /iitp_ws/tod2/train_models/research
 
 $ export PYTHONPATH=$PYTHONPATH:/iitp_ws/tod2/train_models/research:/iitp_ws/tod2/train_models/research/slim
 $ git clone https://github.com/cocodataset/cocoapi.git
