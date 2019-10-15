@@ -1,3 +1,7 @@
+apt-get install git vim
+
+tensorflow/tensorflow:1.12.0-gpu-py3
+
 git checkout 68c3c65596b8fc624be15aef6eac3dc8952cbf23
 
 
