@@ -30,7 +30,7 @@ $ mv models train_models
 -----pycocotools 설치-----
 $ cd /ssd_ws/tod4/train_models/research
 
-$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod4/train_models/research:/ssd_ws/tod3/train_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod4/train_models/research:/ssd_ws/tod4/train_models/research/slim
 
 $ git clone https://github.com/cocodataset/cocoapi.git
 $ cd cocoapi/PythonAPI
@@ -116,7 +116,7 @@ $ git checkout ae0a9409212d0072938fa60c9f85740bb89ced7e
 4-2 Export용 model 환경 확인
 
 $ cd /ssd_ws/tod4/export_models/research
-$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod4/export_models/research:/ssd_ws/tod3/export_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod4/export_models/research:/ssd_ws/tod4/export_models/research/slim
 
 $ protoc object_detection/protos/*.proto --python_out=.
 $ python object_detection/builders/model_builder_test.py
