@@ -28,7 +28,7 @@ $ mv models train_models
 ==============
 2-3 pycocotools, protocbuf 설치
 -----pycocotools 설치-----
-$ cd /ssd_ws/tod2/train_models/research
+$ cd /ssd_ws/tod3/train_models/research
 
 $ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod3/train_models/research:/ssd_ws/tod3/train_models/research/slim
 
