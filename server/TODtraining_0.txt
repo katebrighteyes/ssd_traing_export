@@ -24,15 +24,7 @@ $ git clone https://github.com/tensorflow/models.git
 $ mv models train_models
 
 ===========================================
-2-2 Export용
-$ git clone https://github.com/tensorflow/models.git
-$ mv models export_models
-$ cd export_models
-$ git checkout ae0a9409212d0072938fa60c9f85740bb89ced7e
 
-*다른 브랜치 성공 확인*
-.../export_models/research# ls
-.../export_models/research# ls ../../train_models/research/
 
 2-3 pycocotools, protocbuf 설치
 -----pycocotools 설치-----
@@ -103,6 +95,17 @@ $ python object_detection/model_main.py \
 
 =================================
 <<4 Export pb>>
+
+2-2 Export용
+$ git clone https://github.com/tensorflow/models.git
+$ mv models export_models
+$ cd export_models
+$ git checkout ae0a9409212d0072938fa60c9f85740bb89ced7e
+
+*다른 브랜치 성공 확인*
+.../export_models/research# ls
+.../export_models/research# ls ../../train_models/research/
+===========================================================
 
 $ cd /iitp_ws/tod0/export_models/research
 $ export PYTHONPATH=$PYTHONPATH:/iitp_ws/tod0/export_models/research:/iitp_ws/tod0/export_models/research/slim
