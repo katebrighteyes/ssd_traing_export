@@ -110,8 +110,10 @@ $ python object_detection/model_main.py \
 <<4 Export pb>>
 
 * MANDATORY !!!!
-sudo docker exec -it TFSSD0 /bin/bash
+exit
+
 sudo docker restart TFSSD0
+sudo docker exec -it TFSSD0 /bin/bash
 
 ===========================================
 4-1 Export용 model
