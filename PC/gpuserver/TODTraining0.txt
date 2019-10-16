@@ -64,6 +64,8 @@ line: 151, 152 -> 주석(#) 처리
 해당 라인은 transfer learning을 하거나 fine_tuning할 때 사용하므로 현재는 사용하지 않는다.
 **************************************************
 **만약 transfer 러닝을 하려면 이렇게
+** model.ckpt 다음 숫자는 실제로 pretrained 된 체크포인트 파일 이름을 따른다.
+
   fine_tune_checkpoint: "/ssd_ws/dataset/pretrained/model.ckpt-6919"
   from_detection_checkpoint: true
 **************************************************
@@ -149,7 +151,15 @@ $ INPUT_TYPE=image_tensor
 -----------------------------
 $ PIPELINE_CONFIG_PATH='/ssd_ws/tod0/export_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 ls /ssd_ws/tod0/save_models/coco_test/
+
+**************************************************
 $ TRAINED_CKPT_PREFIX='/ssd_ws/tod0/save_models/coco_test/model.ckpt-10000'
+
+**************************************************
+**만약 transfer 러닝을 하였다면 이렇게. -> 사실 그냥 가장 큰 숫자의 ckpt 를 사용하면 된다.
+
+$ TRAINED_CKPT_PREFIX='/ssd_ws/tod0/save_models/coco_test/model.ckpt-5000'
+**************************************************
 
 mkdir /ssd_ws/tod0/pbfiles
 
