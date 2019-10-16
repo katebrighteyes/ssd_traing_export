@@ -62,8 +62,14 @@ OK가 뜨면 성공
 
 $ vim /ssd_ws/tod4/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config
 
+**************************************************
 line: 151, 152 -> 주석(#) 처리
 해당 라인은 transfer learning을 하거나 fine_tuning할 때 사용하므로 현재는 사용하지 않는다.
+**************************************************
+**만약 transfer 러닝을 하려면 이렇게
+  fine_tune_checkpoint: "/ssd_ws/dataset/pretrained/model.ckpt-6919"
+  from_detection_checkpoint: true
+**************************************************
 
 line: 170,184 -> path설정
 해당 라인에 적혀있는 path의 tfrecord를 train하므로 우리데이터셋 경로로 바꿔주자.
@@ -80,7 +86,12 @@ mkdir /ssd_ws/tod4/save_models/coco_test
 $ PIPELINE_CONFIG_PATH='/ssd_ws/tod4/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 $ MODEL_DIR='/ssd_ws/tod4/save_models/coco_test'
 
+**************************************
 $ NUM_TRAIN_STEPS=10000
+**************************************************
+**만약 transfer 러닝을 하려면
+$ NUM_TRAIN_STEPS=5000
+******************************************
 $ NUM_EVAL_STEPS=100
 $ SAMPLE_1_OF_N_EVAL_EXAMPLES=1
 ------------------------------
