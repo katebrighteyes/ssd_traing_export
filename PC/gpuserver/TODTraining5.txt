@@ -1,7 +1,7 @@
 <ssd4>
 sudo NV_GPU=5 nvidia-docker run --name TFSSD5 -it -d --net=host \
  -v "/drv3/tf_ssd/share:/ssd_ws" \
- nvcr.io/nvidia/tensorflow:18.08-py3
+ tensorflow/tensorflow:1.12.0-gpu-py3
 
 sudo docker exec -it TFSSD5 /bin/bash
 sudo docker restart TFSSD5
@@ -15,6 +15,7 @@ $ pip install Cython
 $ apt-get update
 $ apt-get install python3-tk
 $ pip install --user contextlib2
+apt-get install git vim
 ==========================================================================================================================================================================
 
 2-1 Train용
@@ -98,8 +99,11 @@ $ python object_detection/model_main.py \
 ==============================================================================================
 =================================
 <<4 Export pb>>
+* MANDATORY !!!! 
 
-* 터미널을 재 시작 하거나 다른 터미널을 이용해주세요.
+$ sudo docker exec -it TFSSD0 /bin/bash 
+$ sudo docker restart TFSSD0
+
 ===========================================
 4-1 Export용 model
 
