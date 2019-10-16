@@ -1,15 +1,24 @@
+***********************************************************************
+실습 시에는 만들어진 것을 사용해주시고
+현업에서는 한번 만들어서 계속 사용하면 됩니다.
+
 sudo NV_GPU=0 nvidia-docker run --name IITPTRT0 -it -d --net=host \
  -v "/drv3/iitp1/share:/iitp_ws" \
  nvcr.io/nvidia/tensorrt:19.01-py3
+************************************************************************
 
+* IITPTRT0 라는 컨테이너를 시작한다.
 sudo docker restart IITPTRT0
 
 * IITPTRT0 라는 컨테이너에 들어간다.
 sudo docker exec -it IITPTRT0 /bin/bash
 
+***********************************************************************
 *run this sh srcript as soon as container start.
 *최초 한번 실행
+* 이미 만들어진 컨테이너에서는 실행하지 말아주십시오.
 /opt/tensorrt/python/python_setup.sh
+************************************************************************
 
 2.  pb 를 UFF 컨버팅
 도커 안의 tensorrt/samples/sampleUffSSD 에서 pb 를 컨버팅
