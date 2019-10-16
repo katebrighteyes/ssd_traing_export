@@ -7,6 +7,8 @@ sudo NV_GPU=0 nvidia-docker run --name IITPTRT0 -it -d --net=host \
  nvcr.io/nvidia/tensorrt:19.01-py3
 ************************************************************************
 
+student@mdsdl:/drv3/iitp1/share/tod0/pbfiles$ sudo cp /drv3/tf_ssd/share/tod0/pbfiles/frozen_inference_graph.pb ./
+
 * IITPTRT0 라는 컨테이너를 시작한다.
 sudo docker restart IITPTRT0
 
