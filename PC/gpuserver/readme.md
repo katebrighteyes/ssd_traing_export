@@ -2,6 +2,12 @@ apt-get install git vim
 
 tensorflow/tensorflow:1.12.0-gpu-py3
 
+<<4 Export pb>>
+
+* MANDATORY !!!!
+sudo docker exec -it TFSSD0 /bin/bash
+sudo docker restart TFSSD0
+
 git checkout 68c3c65596b8fc624be15aef6eac3dc8952cbf23
 
 
