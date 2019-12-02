@@ -7,25 +7,25 @@ So it can NEVER be perfect training !!
 #######################################################
 
 # venv setting (you can skip !!)
-sudo apt install protobuf-compiler python3-tk -y
+$ sudo apt-get update
 
-pip3 install virtualenv
+$ sudo apt install protobuf-compiler python3-tk -y
 
-mkdir tf_ssd
+$ pip3 install virtualenv
 
-cd tf_ssd
+$ mkdir tf_ssd
 
-virtualenv venvssd
+$ cd tf_ssd
 
-source venvssd/bin/activate
+$ virtualenv venvssd
+
+$ source venvssd/bin/activate
 
 # 2-0 install package
 
 pip install tensorflow==1.12.0 Cython contextlib2 matplotlib pillow lxml 
 
-
-$ sudo apt-get update
-
+이미 했다.. 필요없음
 $ sudo apt-get install python3-tk
 
 # TEST mnins
@@ -45,24 +45,6 @@ $ git clone https://github.com/tensorflow/models.git
 
 $ mv models train_models
 
-# 2-2 models for Export
-
-$ git clone https://github.com/tensorflow/models.git
-
-$ mv models export_models
-
-$ cd export_models
-
-$ git checkout ae0a9409212d0072938fa60c9f85740bb89ced7e
-
-* Don't be afraid to see Error !
-
-* please check different branch*
-$ cd research
-
-$ ls
-
-$ ls ../../train_models/research/
 
 
 # 2-3 pycocotools, protocbuf install
@@ -198,6 +180,26 @@ $ python object_detection/model_main.py \
 # 4 Export pb
 
 $ cd ~/tf_ssd/tod/export_models/research
+
+# 4-2 models for Export
+
+$ git clone https://github.com/tensorflow/models.git
+
+$ mv models export_models
+
+$ cd export_models
+
+$ git checkout ae0a9409212d0072938fa60c9f85740bb89ced7e
+
+* Don't be afraid to see Error !
+
+* please check different branch*
+$ cd research
+
+$ ls
+
+$ ls ../../train_models/research/
+
 
 $ export PYTHONPATH=$PYTHONPATH:/home/opencv-mds/tf_ssd/tod/export_models/research:/home/opencv-mds/tf_ssd/tod/export_models/research/slim
 
