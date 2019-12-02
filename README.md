@@ -181,11 +181,11 @@ $ python object_detection/model_main.py \
 
 =============================
 
-# 4 Export pb
 
-$ cd ~/tf_ssd/tod/export_models/research
 
-# 4-2 models for Export
+# 4-1 models for Export
+
+$ cd ~/tf_ssd/tod/
 
 $ git clone https://github.com/tensorflow/models.git
 
@@ -204,6 +204,9 @@ $ ls
 
 $ ls ../../train_models/research/
 
+# 4-2 Export pb
+
+$ cd ~/tf_ssd/tod/export_models/research
 
 $ export PYTHONPATH=$PYTHONPATH:/home/opencv-mds/tf_ssd/tod/export_models/research:/home/opencv-mds/tf_ssd/tod/export_models/research/slim
 
