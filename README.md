@@ -45,7 +45,11 @@ $ git clone https://github.com/tensorflow/models.git
 
 $ mv models train_models
 
+$ cd train_models
 
+$ git checkout -b 426b2c6e894c22ffb17f32581305ea87c3b8b377
+
+* 버전 확인은 git log 로 가능
 
 # 2-3 pycocotools, protocbuf install
 
