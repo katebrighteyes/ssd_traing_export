@@ -18,8 +18,8 @@ $ apt-get install git vim
 ==========================================================================================================================================================================
 2-1 Train용
 $ cd /ssd_ws
-mkdir tod0
-cd tod0
+mkdir tod00
+cd tod00
 
 $ git clone https://github.com/tensorflow/models.git
 $ mv models train_models
