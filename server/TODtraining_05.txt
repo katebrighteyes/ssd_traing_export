@@ -57,7 +57,7 @@ OK가 뜨면 성공
 
 3-3 train model modify
 
-$ vim /ssd_ws/tod0555555555555555555555555555555555555555555555/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config
+$ vim /ssd_ws/tod05/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config
 
 **************************************************
 line: 151, 152 -> 주석(#) 처리
@@ -75,7 +75,7 @@ line: 170,184 -> path설정
 170, 184: /ssd_ws/dataset/cocodata/tfrecords/ 여기에 ms만 지우면됨
 
 line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다. 
-172, 186: /ssd_ws/tod02/train_models/research/object_detection/data/mscoco_label_map.pbtxt
+172, 186: /ssd_ws/tod05/train_models/research/object_detection/data/mscoco_label_map.pbtxt
 
 3-4 train
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
