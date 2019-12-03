@@ -1,10 +1,10 @@
 <ssd0>
-sudo NV_GPU=0 nvidia-docker run --name TFSSD0 -it -d --net=host \
+sudo NV_GPU=0 nvidia-docker run --name TFSSD00 -it -d --net=host \
  -v "/drv3/tf_ssd/share:/ssd_ws" \
  tensorflow/tensorflow:1.12.0-gpu-py3
 
-sudo docker exec -it TFSSD0 /bin/bash
-sudo docker restart TFSSD0
+sudo docker exec -it TFSSD00 /bin/bash
+sudo docker restart TFSSD00
 
 ----------------------------------------------------
 2-0 install package
@@ -29,18 +29,18 @@ $ git checkout -b 426b2c6e894c22ffb17f32581305ea87c3b8b377
 
 2-3 pycocotools, protocbuf 설치
 -----pycocotools 설치-----
-$ cd /ssd_ws/tod0/train_models/research
+$ cd /ssd_ws/tod00/train_models/research
 
-$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod0/train_models/research:/ssd_ws/tod0/train_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod00/train_models/research:/ssd_ws/tod00/train_models/research/slim
 
 $ git clone https://github.com/cocodataset/cocoapi.git
 $ cd cocoapi/PythonAPI
 $ make
-$ cp -r pycocotools /ssd_ws/tod0/train_models/research/
+$ cp -r pycocotools /ssd_ws/tod00/train_models/research/
 -------------------------
 
 -----protocbuf 설치-------
-$ cd /ssd_ws/tod0/train_models/research
+$ cd /ssd_ws/tod00/train_models/research
 -
 $ curl -OL https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
 $ unzip protoc-3.2.0-linux-x86_64.zip -d protoc3
@@ -55,7 +55,7 @@ OK가 뜨면 성공
 
 3-3 train model modify
 
-$ vim /ssd_ws/tod0/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config
+$ vim /ssd_ws/tod00/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config
 
 **************************************************
 line: 151, 152 -> 주석(#) 처리
@@ -73,15 +73,15 @@ line: 170,184 -> path설정
 170, 184: /ssd_ws/dataset/cocodata/tfrecords/ 여기에 ms만 지우면됨
 
 line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다. 
-172, 186: /ssd_ws/tod0/train_models/research/object_detection/data/mscoco_label_map.pbtxt
+172, 186: /ssd_ws/tod00/train_models/research/object_detection/data/mscoco_label_map.pbtxt
 
 3-4 train
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
-mkdir /ssd_ws/tod0/save_models/ 
-mkdir /ssd_ws/tod0/save_models/coco_test
+mkdir /ssd_ws/tod00/save_models/ 
+mkdir /ssd_ws/tod00/save_models/coco_test
 
-$ PIPELINE_CONFIG_PATH='/ssd_ws/tod0/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
-$ MODEL_DIR='/ssd_ws/tod0/save_models/coco_test'
+$ PIPELINE_CONFIG_PATH='/ssd_ws/tod00/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
+$ MODEL_DIR='/ssd_ws/tod00/save_models/coco_test'
 
 **************************************
 $ NUM_TRAIN_STEPS=10000
@@ -120,13 +120,13 @@ python object_detection/model_main.py --pipeline_config_path=${PIPELINE_CONFIG_P
 * MANDATORY !!!!
 exit
 
-sudo docker restart TFSSD0
-sudo docker exec -it TFSSD0 /bin/bash
+sudo docker restart TFSSD00
+sudo docker exec -it TFSSD00 /bin/bash
 
 ===========================================
 4-1 Export용 model
 
-$ cd /ssd_ws/tod0/
+$ cd /ssd_ws/tod00/
 
 $ git clone https://github.com/tensorflow/models.git
 $ mv models export_models
@@ -140,8 +140,8 @@ $ git checkout ae0a9409212d0072938fa60c9f85740bb89ced7e
 
 4-2 Export용 model 환경 확인
 
-$ cd /ssd_ws/tod0/export_models/research
-$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod0/export_models/research:/ssd_ws/tod0/export_models/research/slim
+$ cd /ssd_ws/tod00/export_models/research
+$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod00/export_models/research:/ssd_ws/tod0/export_models/research/slim
 
 $ protoc object_detection/protos/*.proto --python_out=.
 $ python object_detection/builders/model_builder_test.py
@@ -150,28 +150,28 @@ $ python object_detection/builders/model_builder_test.py
 ======================
 4-3 Export용 model 설정
 
-cp /ssd_ws/tod0/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config ./object_detection/samples/configs/
+cp /ssd_ws/tod00/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config ./object_detection/samples/configs/
 $ vim ./object_detection/samples/configs/ssd_inception_v2_coco.config
 line 101: override 부분 주석
 
 $ INPUT_TYPE=image_tensor
 
 -----------------------------
-$ PIPELINE_CONFIG_PATH='/ssd_ws/tod0/export_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
-ls /ssd_ws/tod0/save_models/coco_test/
+$ PIPELINE_CONFIG_PATH='/ssd_ws/tod00/export_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
+ls /ssd_ws/tod00/save_models/coco_test/
 
 **************************************************
-$ TRAINED_CKPT_PREFIX='/ssd_ws/tod0/save_models/coco_test/model.ckpt-10000'
+$ TRAINED_CKPT_PREFIX='/ssd_ws/tod00/save_models/coco_test/model.ckpt-10000'
 
 **************************************************
 **만약 transfer 러닝을 하였다면 이렇게. -> 사실 그냥 가장 큰 숫자의 ckpt 를 사용하면 된다.
 
-$ TRAINED_CKPT_PREFIX='/ssd_ws/tod0/save_models/coco_test/model.ckpt-5000'
+$ TRAINED_CKPT_PREFIX='/ssd_ws/tod00/save_models/coco_test/model.ckpt-5000'
 **************************************************
 
-mkdir /ssd_ws/tod0/pbfiles
+mkdir /ssd_ws/tod00/pbfiles
 
-$ EXPORT_DIR='/ssd_ws/tod0/pbfiles'
+$ EXPORT_DIR='/ssd_ws/tod00/pbfiles'
 
 ================================
 4-4 Export pb
