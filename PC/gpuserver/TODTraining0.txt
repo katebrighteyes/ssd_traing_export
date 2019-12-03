@@ -54,11 +54,6 @@ OK가 뜨면 성공
 ----------------------
 
 3-3 train model modify
-이제 우리가 꾸린 데이터로 train을 할 것이다.
-어떤 모델로?: ssd inception v2 
-해당 모델로 train을 하기 위해서 tensorflow에서 제공해주는
-모델들의 config파일을 통해 쉽게할 수 있다.
-해당 config 파일을 우리 데이터를 학습할 수 있도록 수정하자.
 
 $ vim /ssd_ws/tod0/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config
 
@@ -110,9 +105,11 @@ $ python object_detection/model_main.py \
 --num_clones=1 \
 --ps_tasks=1
 
-******
+************************************************
+***** EXPRESS upper statement as 1 line. *****
+************************************************
 python object_detection/model_main.py --pipeline_config_path=${PIPELINE_CONFIG_PATH} --model_dir=${MODEL_DIR} --num_train_steps=${NUM_TRAIN_STEPS} --num_eval_steps=${NUM_EVAL_STEPS} --checkpoint_dir=${PRE_TRAIN} --sample_1_of_n_eval_examples=$SAMPLE_1_OF_N_EVAL_EXAMPLES --num_clones=1 --ps_tasks=1
-******
+*************************************************
 
 ==============================================================================================
 =================================
@@ -186,6 +183,8 @@ $ python object_detection/export_inference_graph.py \
 --output_directory=${EXPORT_DIR}
 
 ==================================================
-*******
+************************************************
+***** EXPRESS upper statement as 1 line. *****
+************************************************
 python object_detection/export_inference_graph.py --input_type=${INPUT_TYPE} --pipeline_config_path=${PIPELINE_CONFIG_PATH} --trained_checkpoint_prefix=${TRAINED_CKPT_PREFIX} --output_directory=${EXPORT_DIR}
-********
+************************************************
