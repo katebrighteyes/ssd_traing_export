@@ -2,18 +2,18 @@
 실습 시에는 만들어진 것을 사용해주시고
 현업에서는 한번 만들어서 계속 사용하면 됩니다.
 
-sudo NV_GPU=0 nvidia-docker run --name IITPTRT0 -it -d --net=host \
- -v "/drv3/iitp1/share:/iitp_ws" \
+sudo NV_GPU=0 nvidia-docker run --name TFTRT0 -it -d --net=host \
+ -v "/drv3/tf_ssd/share:/ssd_ws" \
  nvcr.io/nvidia/tensorrt:19.01-py3
 ************************************************************************
 
 sudo cp /drv3/tf_ssd/share/tod0/pbfiles/frozen_inference_graph.pb ./
 
 * IITPTRT0 라는 컨테이너를 시작한다.
-sudo docker restart IITPTRT0
+sudo docker restart TFTRT0
 
 * IITPTRT0 라는 컨테이너에 들어간다.
-sudo docker exec -it IITPTRT0 /bin/bash
+sudo docker exec -it TFTRT0 /bin/bash
 
 ***********************************************************************
 *run this sh srcript as soon as container start.
@@ -27,11 +27,11 @@ sudo docker exec -it IITPTRT0 /bin/bash
 
 cd /workspace/tensorrt/samples/sampleUffSSD
 
-cp /iitp_ws/config.py .
+cp /ssd_ws/config.py .
 
- convert-to-uff --input-file /iitp_ws/tod0/pbfiles/frozen_inference_graph.pb -O NMS -p ./config.py
+ convert-to-uff --input-file /ssd_ws/tod0/pbfiles/frozen_inference_graph.pb -O NMS -p ./config.py
 
-===> UFF Output written to /iitp_ws/tod0/pbfiles/frozen_inference_graph.uff
+===> UFF Output written to /ssd_ws/tod0/pbfiles/frozen_inference_graph.uff
  
 frozen_inference_graph.uff 가 생성되면 /workspace/tensorrt/data/ssd 폴더로 이동시킨 후 
 
