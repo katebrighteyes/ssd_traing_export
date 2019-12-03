@@ -1,15 +1,17 @@
-iitp_ws
+/ssd_ws
 
 =
 
-/drv3/iitp1/share/
+/drv3/tf_ssd/share
 
-                 dataset/cocodata/tfrecords/
-                 
-                 tod0/
-                 
-                 tod1/
-                 
-                 tod2/
-                 
-....
+         dataset/cocodata/tfrecords/
+         
+         tod0/
+         
+         tod1/
+         
+         tod2/
+
+         tod3/
+
+         tod4/
