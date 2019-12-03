@@ -141,7 +141,7 @@ $ git checkout ae0a9409212d0072938fa60c9f85740bb89ced7e
 4-2 Export용 model 환경 확인
 
 $ cd /ssd_ws/tod04/export_models/research
-$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod02/export_models/research:/ssd_ws/tod02/export_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod04/export_models/research:/ssd_ws/tod04/export_models/research/slim
 
 $ protoc object_detection/protos/*.proto --python_out=.
 $ python object_detection/builders/model_builder_test.py
