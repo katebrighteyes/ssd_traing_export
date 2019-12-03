@@ -23,6 +23,9 @@ cd tod0
 
 $ git clone https://github.com/tensorflow/models.git
 $ mv models train_models
+$ cd train_models
+
+$ git checkout -b 426b2c6e894c22ffb17f32581305ea87c3b8b377
 
 2-3 pycocotools, protocbuf 설치
 -----pycocotools 설치-----
