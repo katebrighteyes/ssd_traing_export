@@ -7,7 +7,6 @@ sudo NV_GPU=0 nvidia-docker run --name TFTRT0 -it -d --net=host \
  nvcr.io/nvidia/tensorrt:19.01-py3
 ************************************************************************
 
-sudo cp /drv3/tf_ssd/share/tod0/pbfiles/frozen_inference_graph.pb ./
 
 * IITPTRT0 라는 컨테이너를 시작한다.
 sudo docker restart TFTRT0
@@ -26,8 +25,6 @@ sudo docker exec -it TFTRT0 /bin/bash
 * 도커 안의 tensorrt/samples/sampleUffSSD 에서 pb 를 컨버팅
 
 # cd /workspace/tensorrt/samples/sampleUffSSD
-
-# cp /ssd_ws/convert/config.py .
 
 # convert-to-uff --input-file /ssd_ws/tod0/pbfiles/frozen_inference_graph.pb -O NMS -p /ssd_ws/convert/config.py
 
