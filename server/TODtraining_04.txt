@@ -120,8 +120,8 @@ python object_detection/model_main.py --pipeline_config_path=${PIPELINE_CONFIG_P
 * MANDATORY !!!!
 exit
 
-sudo docker restart TFSSD02
-sudo docker exec -it TFSSD02 /bin/bash
+sudo docker restart TFSSD04
+sudo docker exec -it TFSSD04 /bin/bash
 
 ===========================================
 4-1 Export용 model
