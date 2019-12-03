@@ -141,7 +141,7 @@ $ git checkout ae0a9409212d0072938fa60c9f85740bb89ced7e
 4-2 Export용 model 환경 확인
 
 $ cd /ssd_ws/tod02/export_models/research
-$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod02/export_models/research:/ssd_ws/tod02222222222222222/export_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod02/export_models/research:/ssd_ws/tod02/export_models/research/slim
 
 $ protoc object_detection/protos/*.proto --python_out=.
 $ python object_detection/builders/model_builder_test.py
@@ -150,7 +150,7 @@ $ python object_detection/builders/model_builder_test.py
 ======================
 4-3 Export용 model 설정
 
-cp /ssd_ws/tod01/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config ./object_detection/samples/configs/
+cp /ssd_ws/tod02/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config ./object_detection/samples/configs/
 $ vim ./object_detection/samples/configs/ssd_inception_v2_coco.config
 line 101: override 부분 주석
 
@@ -169,7 +169,7 @@ $ TRAINED_CKPT_PREFIX='/ssd_ws/tod02/save_models/coco_test/model.ckpt-10000'
 $ TRAINED_CKPT_PREFIX='/ssd_ws/tod02/save_models/coco_test/model.ckpt-5000'
 **************************************************
 
-mkdir /ssd_ws/tod01/pbfiles
+mkdir /ssd_ws/tod02/pbfiles
 
 $ EXPORT_DIR='/ssd_ws/tod02/pbfiles'
 
