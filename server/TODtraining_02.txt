@@ -1,5 +1,5 @@
 <ssd02>
-sudo NV_GPU=2 nvidia-docker run --name TFSSD01 -it -d --net=host \
+sudo NV_GPU=2 nvidia-docker run --name TFSSD02 -it -d --net=host \
  -v "/drv3/tf_ssd/share:/ssd_ws" \
  tensorflow/tensorflow:1.12.0-gpu-py3
 
