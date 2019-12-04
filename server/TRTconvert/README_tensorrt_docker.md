@@ -1,17 +1,18 @@
-/ssd_ws
+# NVIDIA Tensor RT 공식 문서들 (website)
 
-=
+# 설치 가이드
 
-/drv3/tf_ssd/
+https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html#installing
 
-         dataset/cocodata/tfrecords/
-         
-         tod0/
-         
-         tod1/
-         
-         tod2/
+# UFF convert 가이드
 
-         tod3/
+https://docs.nvidia.com/deeplearning/sdk/tensorrt-archived/tensorrt-503/tensorrt-api/python_api/uff/uff.html
 
-         tod4/
+# TensorRT 개발 가이드
+
+https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html
+
+# Tensorflow Python TRT 개발 가이드
+
+https://github.com/NVIDIA-AI-IOT/tf_trt_models
+
