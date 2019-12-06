@@ -31,16 +31,16 @@ $ git checkout -b 426b2c6e894c22ffb17f32581305ea87c3b8b377
 -----pycocotools 설치-----
 $ cd /ssd_ws/tod12/train_models/research
 
-$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod10/train_models/research:/ssd_ws/tod10/train_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod12/train_models/research:/ssd_ws/tod12/train_models/research/slim
 
 $ git clone https://github.com/cocodataset/cocoapi.git
 $ cd cocoapi/PythonAPI
 $ make
-$ cp -r pycocotools /ssd_ws/tod10/train_models/research/
+$ cp -r pycocotools /ssd_ws/tod12/train_models/research/
 -------------------------
 
 -----protocbuf 설치-------
-$ cd /ssd_ws/tod10/train_models/research
+$ cd /ssd_ws/tod12/train_models/research
 -
 $ curl -OL https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
 $ unzip protoc-3.2.0-linux-x86_64.zip -d protoc3
@@ -141,7 +141,7 @@ $ git checkout ae0a9409212d0072938fa60c9f85740bb89ced7e
 4-2 Export용 model 환경 확인
 
 $ cd /ssd_ws/tod12/export_models/research
-$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod10/export_models/research:/ssd_ws/tod10/export_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod12/export_models/research:/ssd_ws/tod12/export_models/research/slim
 
 $ protoc object_detection/protos/*.proto --python_out=.
 $ python object_detection/builders/model_builder_test.py
