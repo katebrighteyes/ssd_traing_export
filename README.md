@@ -99,6 +99,7 @@ unzip tfrecord.zip
 # 3-3 train model modify
 
 $ vim ~/tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config
+
 line: 151, 152 -> 주석(#) 처리
 
 해당 라인은 transfer learning을 하거나 fine_tuning할 때 사용하므로 현재는 사용하지 않는다.
