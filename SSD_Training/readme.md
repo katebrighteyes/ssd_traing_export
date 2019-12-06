@@ -22,7 +22,7 @@
 
 =
 
-/drv3/tf_ssd/share
+/ssd2/tf_ssd/share
 
          dataset/cocodata/tfrecords/
          
