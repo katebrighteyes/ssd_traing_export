@@ -87,7 +87,7 @@ $ MODEL_DIR='/ssd_ws/tod03/save_models/coco_test'
 $ NUM_TRAIN_STEPS=10000
 **************************************************
 **만약 transfer 러닝을 하려면
-$ NUM_TRAIN_STEPS=1000
+$ NUM_TRAIN_STEPS=500
 ******************************************
 
 $ NUM_EVAL_STEPS=100
@@ -166,7 +166,7 @@ $ TRAINED_CKPT_PREFIX='/ssd_ws/tod03/save_models/coco_test/model.ckpt-10000'
 **************************************************
 **만약 transfer 러닝을 하였다면 이렇게. -> 사실 그냥 가장 큰 숫자의 ckpt 를 사용하면 된다.
 
-$ TRAINED_CKPT_PREFIX='/ssd_ws/tod05/save_models/coco_test/model.ckpt-11000'
+$ TRAINED_CKPT_PREFIX='/ssd_ws/tod05/save_models/coco_test/model.ckpt-10500'
 **************************************************
 
 mkdir /ssd_ws/tod03/pbfiles
