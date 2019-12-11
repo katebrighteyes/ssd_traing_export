@@ -5,6 +5,10 @@
 sudo NV_GPU=0 nvidia-docker run --name TFTRT00 -it -d --net=host \
  -v "/drv3/tf_ssd/share:/ssd_ws" \
  nvcr.io/nvidia/tensorrt:19.01-py3
+ 
+ sudo NV_GPU=0 nvidia-docker run --name MYTRT0 -it -d --net=host \
+ -v "/ssd2/tf_ssd/share:/ssd_ws" \
+ nvcr.io/nvidia/tensorrt:19.08-py3
 ************************************************************************
 
 
