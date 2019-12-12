@@ -31,7 +31,7 @@ $ git checkout -b 426b2c6e894c22ffb17f32581305ea87c3b8b377
 -----pycocotools 설치-----
 $ cd /ssd_ws/tod21/train_models/research
 
-$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod21/train_models/research:/ssd_ws/tod11/train_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod21/train_models/research:/ssd_ws/tod21/train_models/research/slim
 
 $ git clone https://github.com/cocodataset/cocoapi.git
 $ cd cocoapi/PythonAPI
