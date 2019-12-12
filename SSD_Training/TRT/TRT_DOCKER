@@ -1,5 +1,4 @@
-192.168.101.7 : 2200
-mdsdl / academy
+192.168.101.7 
 ***********************************************************************
 sudo NV_GPU=0 nvidia-docker run --name TFTRT00 -it -d --net=host \
  -v "/drv3/tf_ssd/share:/ssd_ws" \
@@ -36,8 +35,7 @@ sudo docker exec -it [도커이름] /bin/bash
 ************************************************************************
 
 <<<<< PC 의 경우 >>>>>
-192.168.101.2 : 22
-nvidia / academy
+192.168.101.2 
 ***********************************************************************
 sudo NV_GPU=0 nvidia-docker run --name TFTRT05 -it -d --net=host \
  -v "/ssd2/tf_ssd/share:/ssd_ws" \
