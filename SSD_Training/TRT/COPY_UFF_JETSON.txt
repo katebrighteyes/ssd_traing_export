@@ -67,6 +67,8 @@ vim config_infer_primary_ssd.txt
 
 에서 82 라인을 0.2에서 0.3 사이의 값을 넣으며 deepstream-app 테스트를 반복한다.
 
+deepstream-app -c deepstream_app_config_ssd.txt
+
 
 
 
