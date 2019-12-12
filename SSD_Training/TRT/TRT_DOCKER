@@ -1,0 +1,36 @@
+***********************************************************************
+sudo NV_GPU=0 nvidia-docker run --name TFTRT00 -it -d --net=host \
+ -v "/drv3/tf_ssd/share:/ssd_ws" \
+ nvcr.io/nvidia/tensorrt:19.08-py3
+************************************************************************
+***********************************************************************
+sudo NV_GPU=1 nvidia-docker run --name TFTRT01 -it -d --net=host \
+ -v "/drv3/tf_ssd/share:/ssd_ws" \
+ nvcr.io/nvidia/tensorrt:19.08-py3
+************************************************************************
+***********************************************************************
+sudo NV_GPU=2 nvidia-docker run --name TFTRT02 -it -d --net=host \
+ -v "/drv3/tf_ssd/share:/ssd_ws" \
+ nvcr.io/nvidia/tensorrt:19.08-py3
+************************************************************************
+***********************************************************************
+sudo NV_GPU=3 nvidia-docker run --name TFTRT03 -it -d --net=host \
+ -v "/drv3/tf_ssd/share:/ssd_ws" \
+ nvcr.io/nvidia/tensorrt:19.08-py3
+************************************************************************
+***********************************************************************
+sudo NV_GPU=4 nvidia-docker run --name TFTRT04 -it -d --net=host \
+ -v "/drv3/tf_ssd/share:/ssd_ws" \
+ nvcr.io/nvidia/tensorrt:19.08-py3
+************************************************************************
+
+* 컨테이너에 들어간다.
+sudo docker exec -it TFTRT00 /bin/bash
+
+***********************************************************************
+*run this sh srcript as soon as container start.
+*최초 한번 실행
+* 이미 만들어진 컨테이너에서는 실행하지 말아주십시오.
+/opt/tensorrt/python/python_setup.sh
+************************************************************************
+
