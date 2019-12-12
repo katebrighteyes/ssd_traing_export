@@ -1,0 +1,85 @@
+<< 00, 10, 20, 30 번 스크립트>>
+
+* IITPTRT0 라는 컨테이너를 시작한다.
+sudo docker restart TFTRT00
+
+* IITPTRT0 라는 컨테이너에 들어간다.
+sudo docker exec -it TFTRT00 /bin/bash
+
+2.  pb 를 UFF 컨버팅
+* 도커 안의 tensorrt/samples/sampleUffSSD 에서 pb 를 컨버팅
+
+# cd /workspace/tensorrt/samples/sampleUffSSD
+
+================================================
+<< 00번 스크립트>>
+# convert-to-uff --input-file /ssd_ws/tod00/pbfiles/frozen_inference_graph.pb -O NMS -p /ssd_ws/convert/config.py
+
+* ===> UFF Output written to /ssd_ws/tod00/pbfiles/frozen_inference_graph.uff
+ 
+* frozen_inference_graph.uff 가 생성되면 /workspace/tensorrt/data/ssd 폴더로 이동시킨
+
+# cp /ssd_ws/tod00/pbfiles/frozen_inference_graph.uff /workspace/tensorrt/data/ssd
+
+==================================================
+================================================
+<< 10번 스크립트>>
+# convert-to-uff --input-file /ssd_ws/tod10/pbfiles/frozen_inference_graph.pb -O NMS -p /ssd_ws/convert/config.py
+
+* ===> UFF Output written to /ssd_ws/tod10/pbfiles/frozen_inference_graph.uff
+ 
+* frozen_inference_graph.uff 가 생성되면 /workspace/tensorrt/data/ssd 폴더로 이동시킨
+
+# cp /ssd_ws/tod10/pbfiles/frozen_inference_graph.uff /workspace/tensorrt/data/ssd
+
+==================================================
+================================================
+<< 20번 스크립트>>
+# convert-to-uff --input-file /ssd_ws/tod20/pbfiles/frozen_inference_graph.pb -O NMS -p /ssd_ws/convert/config.py
+
+* ===> UFF Output written to /ssd_ws/tod20/pbfiles/frozen_inference_graph.uff
+ 
+* frozen_inference_graph.uff 가 생성되면 /workspace/tensorrt/data/ssd 폴더로 이동시킨
+
+# cp /ssd_ws/tod20/pbfiles/frozen_inference_graph.uff /workspace/tensorrt/data/ssd
+
+==================================================
+================================================
+<< 30번 스크립트>>
+# convert-to-uff --input-file /ssd_ws/tod30/pbfiles/frozen_inference_graph.pb -O NMS -p /ssd_ws/convert/config.py
+
+* ===> UFF Output written to /ssd_ws/tod30/pbfiles/frozen_inference_graph.uff
+ 
+* frozen_inference_graph.uff 가 생성되면 /workspace/tensorrt/data/ssd 폴더로 이동시킨
+
+# cp /ssd_ws/tod30/pbfiles/frozen_inference_graph.uff /workspace/tensorrt/data/ssd
+
+==================================================
+<<공통>>
+
+
+frozen_inference_graph.uff -> sample_ssd_relu6.uff 로 변경한다.(mv)
+# cd /workspace/tensorrt/data/ssd
+# mv frozen_inference_graph.uff sample_ssd_relu6.uff
+
+# cd /workspace/tensorrt/samples/sampleUffSSD
+
+# vim sampleUffSSD.cpp
+
+소스 49라인 수정 : threshold 값을 0.25 정도로 수정한다.  
+
+샘플 빌드
+
+# cd /workspace/tensorrt/samples/
+
+# make
+
+# cd ../bin/
+
+* if there are ppm file, the you better remove them.
+
+# rm *.ppm
+# ./sample_uff_ssd
+
+* and check the output files.
+=============================================================
