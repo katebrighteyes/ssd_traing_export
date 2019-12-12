@@ -12,7 +12,7 @@ sudo docker exec -it TFTRT01 /bin/bash
 # cd /workspace/tensorrt/samples/sampleUffSSD
 
 ================================================
-<< 00번 스크립트>>
+<< 01번 스크립트>>
 # convert-to-uff --input-file /ssd_ws/tod01/pbfiles/frozen_inference_graph.pb -O NMS -p /ssd_ws/convert/config.py
 
 * ===> UFF Output written to /ssd_ws/tod01/pbfiles/frozen_inference_graph.uff
@@ -23,7 +23,7 @@ sudo docker exec -it TFTRT01 /bin/bash
 
 ==================================================
 ================================================
-<< 10번 스크립트>>
+<< 11번 스크립트>>
 # convert-to-uff --input-file /ssd_ws/tod11/pbfiles/frozen_inference_graph.pb -O NMS -p /ssd_ws/convert/config.py
 
 * ===> UFF Output written to /ssd_ws/tod11/pbfiles/frozen_inference_graph.uff
@@ -34,7 +34,7 @@ sudo docker exec -it TFTRT01 /bin/bash
 
 ==================================================
 ================================================
-<< 20번 스크립트>>
+<< 21번 스크립트>>
 # convert-to-uff --input-file /ssd_ws/tod21/pbfiles/frozen_inference_graph.pb -O NMS -p /ssd_ws/convert/config.py
 
 * ===> UFF Output written to /ssd_ws/tod21/pbfiles/frozen_inference_graph.uff
@@ -45,7 +45,7 @@ sudo docker exec -it TFTRT01 /bin/bash
 
 ==================================================
 ================================================
-<< 30번 스크립트>>
+<< 31번 스크립트>>
 # convert-to-uff --input-file /ssd_ws/tod31/pbfiles/frozen_inference_graph.pb -O NMS -p /ssd_ws/convert/config.py
 
 * ===> UFF Output written to /ssd_ws/tod31/pbfiles/frozen_inference_graph.uff
