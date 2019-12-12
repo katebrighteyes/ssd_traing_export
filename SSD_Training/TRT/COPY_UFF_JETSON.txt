@@ -4,60 +4,60 @@ cd /opt/nvidia/deepstream/deepstream-4.0/sources/objectDetector_SSD
 rm *.engine
  
 ---------------------------------------------------------------------
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod00/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod00/pbfiles/frozen_inference_graph.uff ./
 
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod01/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod01/pbfiles/frozen_inference_graph.uff ./
 
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod02/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod02/pbfiles/frozen_inference_graph.uff ./
 
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod03/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod03/pbfiles/frozen_inference_graph.uff ./
 
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod04/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod04/pbfiles/frozen_inference_graph.uff ./
 
-scp nvidia@192.168.101.2:/ssd2/tf_ssd/share/tod05/pbfiles/sample_ssd_relu6.uff ./
+scp nvidia@192.168.101.2:/ssd2/tf_ssd/share/tod05/pbfiles/frozen_inference_graph.uff ./
 
-scp nvidia@192.168.101.2:/ssd2/tf_ssd/share/tod06/pbfiles/sample_ssd_relu6.uff ./
+scp nvidia@192.168.101.2:/ssd2/tf_ssd/share/tod06/pbfiles/frozen_inference_graph.uff ./
 ----------------------------------------------------------------------------------
 ---------------------------------------------------------------------
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod10/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod10/pbfiles/frozen_inference_graph.uff ./
 
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod11/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod11/pbfiles/frozen_inference_graph.uff ./
 
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod12/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod12/pbfiles/frozen_inference_graph.uff ./
 
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod13/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod13/pbfiles/frozen_inference_graph.uff ./
 
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod14/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod14/pbfiles/frozen_inference_graph.uff ./
 
-scp nvidia@192.168.101.2:/ssd2/tf_ssd/share/tod15/pbfiles/sample_ssd_relu6.uff ./
+scp nvidia@192.168.101.2:/ssd2/tf_ssd/share/tod15/pbfiles/frozen_inference_graph.uff ./
 
-scp nvidia@192.168.101.2:/ssd2/tf_ssd/share/tod16/pbfiles/sample_ssd_relu6.uff ./
+scp nvidia@192.168.101.2:/ssd2/tf_ssd/share/tod16/pbfiles/frozen_inference_graph.uff ./
 ----------------------------------------------------------------------------------
 ---------------------------------------------------------------------
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod20/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod20/pbfiles/frozen_inference_graph.uff ./
 
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod21/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod21/pbfiles/frozen_inference_graph.uff ./
 
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod22/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod22/pbfiles/frozen_inference_graph.uff ./
 
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod23/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod23/pbfiles/frozen_inference_graph.uff ./
 
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod24/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod24/pbfiles/frozen_inference_graph.uff ./
 
-scp nvidia@192.168.101.2:/ssd2/tf_ssd/share/tod25/pbfiles/sample_ssd_relu6.uff ./
+scp nvidia@192.168.101.2:/ssd2/tf_ssd/share/tod25/pbfiles/frozen_inference_graph.uff ./
 
-scp nvidia@192.168.101.2:/ssd2/tf_ssd/share/tod26/pbfiles/sample_ssd_relu6.uff ./
+scp nvidia@192.168.101.2:/ssd2/tf_ssd/share/tod26/pbfiles/frozen_inference_graph.uff ./
 ----------------------------------------------------------------------------------
 ---------------------------------------------------------------------
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod30/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod30/pbfiles/frozen_inference_graph.uff ./
 
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod31/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod31/pbfiles/frozen_inference_graph.uff ./
 
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod32/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod32/pbfiles/frozen_inference_graph.uff ./
 
-scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod33/pbfiles/sample_ssd_relu6.uff ./
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod33/pbfiles/frozen_inference_graph.uff ./
 
-scp nvidia@192.168.101.2:/ssd2/tf_ssd/share/tod35/pbfiles/sample_ssd_relu6.uff ./
+scp nvidia@192.168.101.2:/ssd2/tf_ssd/share/tod35/pbfiles/frozen_inference_graph.uff ./
 
 ----------------------------------------------------------------------------------
 
