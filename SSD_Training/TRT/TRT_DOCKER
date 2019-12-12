@@ -23,6 +23,17 @@ sudo NV_GPU=4 nvidia-docker run --name TFTRT04 -it -d --net=host \
  -v "/drv3/tf_ssd/share:/ssd_ws" \
  nvcr.io/nvidia/tensorrt:19.08-py3
 ************************************************************************
+<<<<< PC 의 경우 >>>>>
+***********************************************************************
+sudo NV_GPU=0 nvidia-docker run --name TFTRT05 -it -d --net=host \
+ -v "/ssd2/tf_ssd/share:/ssd_ws" \
+ nvcr.io/nvidia/tensorrt:19.08-py3
+************************************************************************
+***********************************************************************
+sudo NV_GPU=1 nvidia-docker run --name TFTRT06 -it -d --net=host \
+ -v "/ssd2/tf_ssd/share:/ssd_ws" \
+ nvcr.io/nvidia/tensorrt:19.08-py3
+************************************************************************
 
 * 컨테이너에 들어간다.
 sudo docker exec -it TFTRT00 /bin/bash
