@@ -1,0 +1,20 @@
+<<젯슨 보드에서>>
+
+cd /opt/nvidia/deepstream/deepstream-4.0/sources/objectDetector_SSD
+rm *.engine
+ 
+---------------------------------------------------------------------
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod00/pbfiles/sample_ssd_relu6.uff ./
+
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod01/pbfiles/sample_ssd_relu6.uff ./
+
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod02/pbfiles/sample_ssd_relu6.uff ./
+
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod03/pbfiles/sample_ssd_relu6.uff ./
+
+scp -P 2200 mdsdl@192.168.101.7:/drv3/tf_ssd/share/tod04/pbfiles/sample_ssd_relu6.uff ./
+
+scp nvidia@192.168.101.2:/ssd2/tf_ssd/share/tod05/pbfiles/sample_ssd_relu6.uff ./
+
+scp nvidia@192.168.101.2:/ssd2/tf_ssd/share/tod06/pbfiles/sample_ssd_relu6.uff ./
+----------------------------------------------------------------------------------
