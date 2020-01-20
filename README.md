@@ -86,7 +86,9 @@ $ python object_detection/builders/model_builder_test.py
 
 # 3-2 tfrecord 준비
 
-sudo cp /media/[공유폴더이름]/tfrecord.zip ./
+sudo ls /media/sf_SharedVBImage/ex/
+
+sudo cp /media/sf_SharedVBImage/ex/tfrecord.zip ./
 
 sudo chmod 777 ./tfrecord.zip
 
