@@ -1,7 +1,5 @@
 #****vBox 에서 다시 트레이닝 시작할때***
 
-rm -rf ~/tf_ssd/tod/save_models/coco_test/*
-
 cd ~/tf_ssd/
 
 # 1. start venv
