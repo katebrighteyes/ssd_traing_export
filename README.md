@@ -25,9 +25,6 @@ $ source venvssd/bin/activate
 
 pip install tensorflow==1.12.0 Cython contextlib2 matplotlib pillow lxml 
 
-이미 했다.. 필요없음
-$ sudo apt-get install python3-tk
-
 # TEST mnins
 
 # Refer
