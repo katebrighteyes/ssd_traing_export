@@ -14,12 +14,20 @@ sudo apt install protobuf-compiler python3-tk -y
 
 sudo apt install python3-pip
 
+## install virtualenv
+
 pip3 install virtualenv
+
+or
+
+sudo apt install virtualenv
 
 cd /
 
 mkdir tf_ssd
+
 cd tf_ssd
+
 sudo chmod 777 .
 
 virtualenv venvssd
