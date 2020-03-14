@@ -16,9 +16,11 @@ sudo apt install python3-pip
 
 pip3 install virtualenv
 
-mkdir tf_ssd
+cd /
 
+mkdir tf_ssd
 cd tf_ssd
+sudo chmod 777 .
 
 virtualenv venvssd
 
@@ -39,7 +41,6 @@ https://github.com/katebrighteyes/PythonDL_Collection/blob/master/mnist/mnist_cn
 
 # 2-1 models for Train
 
-
 $ git clone https://github.com/tensorflow/models.git
 
 $ mv models train_models
@@ -53,7 +54,7 @@ $ ls ./train_models/research/
 
 $ cd ./train_models/research
 
-$ export PYTHONPATH=$PYTHONPATH:/home/nvidia/tf_ssd/train_models/research:/home/nvidia/tf_ssd/train_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/tf_ssd/train_models/research:/home/nvidia/tf_ssd/train_models/research/slim
 
 $ git clone https://github.com/cocodataset/cocoapi.git
 
@@ -61,12 +62,12 @@ $ cd cocoapi/PythonAPI
 
 $ make
 
-$ cp -r pycocotools /home/nvidia/tf_ssd/train_models/research/
+$ cp -r pycocotools /tf_ssd/train_models/research/
 
 
 -----protocbuf install -------
 
-$ cd /home/nvidia/tf_ssd/train_models/research
+$ cd /tf_ssd/train_models/research
 
 $ curl -OL https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
 
@@ -89,7 +90,7 @@ $ python object_detection/builders/model_builder_test.py
 
 cd tf_ssd/
 
-scp nvidia@192.168.10.2:/home/nvidia/TOD/tfrecord.zip ./
+scp ?? /tfrecord.zip ./
 
 unzip tfrecord.zip
 
@@ -97,7 +98,7 @@ unzip tfrecord.zip
 
 # 3-3 train model modify
 
-$ vim /home/nvidia/tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config line: 151, 152 -> 주석(#) 처리
+$ vim /tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config line: 151, 152 -> 주석(#) 처리
 
 해당 라인은 transfer learning을 하거나 fine_tuning할 때 사용하므로 현재는 사용하지 않는다.
 
@@ -105,11 +106,11 @@ line: 170,184 -> path설정
 
 해당 라인에 적혀있는 path의 tfrecord를 train하므로 우리데이터셋 경로로 바꿔주자.
 
-170, 184: /home/nvidia/tf_ssd/tfrecord/ 여기에 ms만 지우면됨
+170, 184: /tf_ssd/tfrecord/ 여기에 ms만 지우면됨
 
 line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
-172, 186: /home/nvidia/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt
+172, 186: /tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt
 
 ++++++++++++++++++++++++++++++++++++++++++
 
@@ -124,7 +125,7 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 172 }
 
-173 label_map_path: "/home/nvidia/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
+173 label_map_path: "/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
 
 174 }
 
@@ -134,11 +135,11 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 184 tf_record_input_reader {
 
-185 input_path: "/home/nvidia/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
+185 input_path: "/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
 
 186 }
 
-187 label_map_path: "/home/nvidia/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
+187 label_map_path: "/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
 
 188 shuffle: false
 
@@ -153,13 +154,13 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
 
-mkdir /home/nvidia/tf_ssd/save_models/
+mkdir /tf_ssd/save_models/
 
-mkdir /home/nvidia/tf_ssd/save_models/coco_test
+mkdir /tf_ssd/save_models/coco_test
 
-$ PIPELINE_CONFIG_PATH='/home/nvidia/tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
+$ PIPELINE_CONFIG_PATH='/tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 
-$ MODEL_DIR='/home/nvidia/tf_ssd/save_models/coco_test'
+$ MODEL_DIR='/tf_ssd/save_models/coco_test'
 
 
 ( * SHORT TRAIN !! )
@@ -231,17 +232,17 @@ line 101: override 부분 주석
 $ INPUT_TYPE=image_tensor
 
 
-$ PIPELINE_CONFIG_PATH='/home/nvidia/tf_ssd/export_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
+$ PIPELINE_CONFIG_PATH='/tf_ssd/export_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 
-ls /home/nvidia/tf_ssd/save_models/coco_test/
+ls /tf_ssd/save_models/coco_test/
 
-$ TRAINED_CKPT_PREFIX='/home/nvidia/tf_ssd/save_models/coco_test/model.ckpt-20'
+$ TRAINED_CKPT_PREFIX='/tf_ssd/save_models/coco_test/model.ckpt-20'
 
 mkdir ~/tf_ssd/pbfiles
 
 ========================
 
-$ EXPORT_DIR='/home/nvidia/tf_ssd/pbfiles'
+$ EXPORT_DIR='/tf_ssd/pbfiles'
 
 $ python object_detection/export_inference_graph.py
 --input_type=${INPUT_TYPE}
@@ -249,4 +250,4 @@ $ python object_detection/export_inference_graph.py
 --trained_checkpoint_prefix=${TRAINED_CKPT_PREFIX}
 --output_directory=${EXPORT_DIR}
 
-$ ls ~/tf_ssd/pbfiles/
+$ ls /tf_ssd/pbfiles/
