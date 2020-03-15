@@ -38,7 +38,7 @@ source venvssd/bin/activate
 
 # 2-0 install package
 
-pip install tensorflow==1.12.0 Cython contextlib2 matplotlib pillow lxml
+pip install tensorflow==1.14.0 Cython contextlib2 matplotlib pillow lxml
 
 $ sudo apt-get update
 
