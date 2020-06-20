@@ -60,13 +60,13 @@ cd train_models
 git checkout 5ed215b2ae0fd9650d1650953afcffdd23bb28f6
 
 
-$ ls ./train_models/research/
+$ ls ./research/
 
 2-3 pycocotools, protocbuf install
 
 -----pycocotools install -----
 
-$ cd ./train_models/research
+$ cd ~/tf_ssd/tod/train_models/research
 
 $ export PYTHONPATH=$PYTHONPATH:/tf_ssd/train_models/research:/home/nvidia/tf_ssd/train_models/research/slim
 
@@ -76,12 +76,12 @@ $ cd cocoapi/PythonAPI
 
 $ make
 
-$ cp -r pycocotools /tf_ssd/train_models/research/
+$ cp -r pycocotools ~/tf_ssd/tod/train_models/research/
 
 
 -----protocbuf install -------
 
-$ cd /tf_ssd/train_models/research
+$ cd ~/tf_ssd/tod/train_models/research
 
 $ curl -OL https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
 
@@ -111,6 +111,8 @@ unzip tfrecord.zip
 ===========================================
 
 # 3-3 train model modify
+
+cd ~/tf_ssd/tod/train_models/research
 
 $ vim /tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config line: 151, 152 -> 주석(#) 처리
 
@@ -143,6 +145,7 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 174 }
 
+...
 
 183 eval_input_reader: {
 
