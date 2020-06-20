@@ -27,6 +27,8 @@ $ source venvssd/bin/activate
 
 pip install tensorflow==1.14.0 Cython contextlib2 matplotlib pillow lxml 
 
+pip install gast==0.2.2
+
 # TEST mnins
 
 # Refer
