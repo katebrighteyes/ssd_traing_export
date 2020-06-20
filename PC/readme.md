@@ -44,6 +44,8 @@ $ sudo apt-get update
 
 $ sudo apt-get install python3-tk
 
+pip install gast==0.2.2
+
 # TEST
 https://github.com/katebrighteyes/PythonDL_Collection/blob/master/mnist/mnist_cnn.py
 
@@ -52,6 +54,10 @@ https://github.com/katebrighteyes/PythonDL_Collection/blob/master/mnist/mnist_cn
 $ git clone https://github.com/tensorflow/models.git
 
 $ mv models train_models
+
+cd train_models
+
+git checkout 5ed215b2ae0fd9650d1650953afcffdd23bb28f6
 
 
 $ ls ./train_models/research/
