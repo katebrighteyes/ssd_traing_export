@@ -68,7 +68,7 @@ $ ls ./research/
 
 $ cd ~/tf_ssd/tod/train_models/research
 
-$ export PYTHONPATH=$PYTHONPATH:/tf_ssd/train_models/research:/home/nvidia/tf_ssd/train_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/home/opencv-mds/tf_ssd/tod/train_models/research:/home/opencv-mds/tf_ssd/tod/train_models/research/slim
 
 $ git clone https://github.com/cocodataset/cocoapi.git
 
