@@ -46,7 +46,7 @@ $ mv models train_models
 
 $ cd train_models
 
-$ git checkout -b 426b2c6e894c22ffb17f32581305ea87c3b8b377
+$ git checkout 5ed215b2ae0fd9650d1650953afcffdd23bb28f6
 
 * 버전 확인은 git log 로 가능
 
