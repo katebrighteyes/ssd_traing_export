@@ -46,8 +46,31 @@ $ sudo apt-get install python3-tk
 
 pip install gast==0.2.2
 
-# TEST
+# Tensorflow TEST
+
+mkdir mnist
+
+cd mnist
+
+mkdir temp
+
+vim mnist_cnn.py
+
+아래 링크를 보고 작성
+
 https://github.com/katebrighteyes/PythonDL_Collection/blob/master/mnist/mnist_cnn.py
+
+저장한 후 권한 변경
+
+chmod +x mnist_cnn.py
+
+python mnist_cnn.py
+
+# Tensorflow TEST
+
+cd ..
+
+mkdir mnist
 
 # 2-1 models for Train
 
