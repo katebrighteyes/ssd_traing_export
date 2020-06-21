@@ -46,7 +46,7 @@ $ sudo apt-get install python3-tk
 
 pip install gast==0.2.2
 
-# Tensorflow TEST
+# 2-1 Tensorflow TEST
 
 mkdir mnist
 
@@ -66,13 +66,11 @@ chmod +x mnist_cnn.py
 
 python mnist_cnn.py
 
-# Tensorflow TEST
+# 2-2 Tensorflow slim TEST
 
-cd ..
+$ cd ~/tf_ssd/
 
-mkdir mnist
-
-# 2-1 models for Train
+$ cd ~/tf_ssd/tod/train_models/research/slim
 
 $ git clone https://github.com/tensorflow/models.git
 
@@ -82,10 +80,68 @@ cd train_models
 
 git checkout 5ed215b2ae0fd9650d1650953afcffdd23bb28f6
 
+592 line 에 다음과 같이 수정
 
-$ ls ./research/
+    session_config = tf.ConfigProto(allow_soft_placement=True)
 
-2-3 pycocotools, protocbuf install
+    slim.learning.train(
+        train_tensor,
+        logdir=FLAGS.train_dir,
+        master=FLAGS.master,
+        is_chief=(FLAGS.task == 0),
+        init_fn=_get_init_fn(),
+        summary_op=summary_op,
+        number_of_steps=FLAGS.max_number_of_steps,
+        log_every_n_steps=FLAGS.log_every_n_steps,
+        save_summaries_secs=FLAGS.save_summaries_secs,
+        save_interval_secs=FLAGS.save_interval_secs,
+        sync_optimizer=optimizer if FLAGS.sync_replicas else None,
+        session_config = session_config,
+        )
+        
+~/tf_ssd/tod$ mkdir googlenet
+
+cd googlenet
+
+wget http://download.tensorflow.org/models/inception_v1_2016_08_28.tar.gz
+
+tar xzf inception_v1_2016_08_28.tar.gz
+
+$ cd ~/tf_ssd/tod/train_models/research/slim
+
+훈련 inceptionnet classification 
+
+$ python train_image_classifier.py \
+    --train_dir=/home/opencv-mds/tf_ssd/tod/trained \
+    --dataset_name=flowers \
+    --dataset_split_name=train \
+    --dataset_dir=/home/opencv-mds/tf_ssd/tod/flowers \
+    --model_name=inception_v1 \
+    --max_number_of_steps=500 \
+    --checkpoint_path=/home/opencv-mds/tf_ssd/tod/googlenet/inception_v1.ckpt \
+    --checkpoint_exclude_scopes=InceptionV1/Logits \
+    --trainable_scopes=InceptionV1/Logits \
+    --batch_size=16 \
+    --learning_rate=0.01 \
+    --learning_rate_decay_type=fixed \
+    --save_interval_secs=100 \
+    --log_every_n_steps_secs=100 \
+    --optimizer=rmsprop \
+    --weight_decay=0.00004
+    
+평가
+
+$ python eval_image_classifier.py \
+    -–alsologtostderr \
+    --checkpoint_path=/home/opencv-mds/tf_ssd/tod/trained \ \
+    --dataset_dir=/home/opencv-mds/tf_ssd/tod/flowers \
+    --dataset_name=flowers \
+    --dataset_split_name=validation \
+    --model_name=inception_v1
+
+
+
+# 2-3 pycocotools, protocbuf install
 
 -----pycocotools install -----
 
@@ -155,6 +211,7 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 수정된 config 예 : vBox에 coco_val.record 가 없어서 동일하게 coco_train.record 을 사용함.
 
+- 훈련 데이터 관련 train_input_reader
 
 169 train_input_reader: {
 
@@ -168,7 +225,7 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 174 }
 
-...
+- 평가 데이터 관련 eval_input_reader
 
 183 eval_input_reader: {
 
