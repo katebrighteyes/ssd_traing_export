@@ -149,19 +149,30 @@ $ python train_image_classifier.py \
     --optimizer=rmsprop \
     --weight_decay=0.00004
     
+  * ---> 한 줄로 표현
+ $ python train_image_classifier.py --train_dir=/home/opencv-mds/tf_ssd/tod/trained --dataset_name=flowers --dataset_split_name=train   --dataset_dir=/home/opencv-mds/tf_ssd/tod/flowers --model_name=inception_v1 --max_number_of_steps=500  --checkpoint_path=/home/opencv-mds/tf_ssd/tod/googlenet/inception_v1.ckpt --checkpoint_exclude_scopes=InceptionV1/Logits --trainable_scopes=InceptionV1/Logits --batch_size=16  --learning_rate=0.01  --learning_rate_decay_type=fixed  --save_interval_secs=100  --log_every_n_steps_secs=100  --optimizer=rmsprop --weight_decay=0.00004
+    
 * 평가
+
+mkdir ~/tf_ssd/tod/trained
 
 $ python eval_image_classifier.py \
     -–alsologtostderr \
-    --checkpoint_path=/home/opencv-mds/tf_ssd/tod/trained \ \
+    --checkpoint_path=/home/opencv-mds/tf_ssd/tod/trained \
     --dataset_dir=/home/opencv-mds/tf_ssd/tod/flowers \
     --dataset_name=flowers \
     --dataset_split_name=validation \
     --model_name=inception_v1
 
+  * ---> 한 줄로 표현
+ $ python eval_image_classifier.py -–alsologtostderr  --checkpoint_path=/home/opencv-mds/tf_ssd/tod/trained --dataset_dir=/home/opencv-mds/tf_ssd/tod/flowers  --dataset_name=flowers  --dataset_split_name=validation --model_name=inception_v1
 
 
-# 2-3 pycocotools, protocbuf install
+# 3 SSD Object Detection
+
+동일한 train_model 폴더에서 진행
+
+# pycocotools, protocbuf install
 
 -----pycocotools install -----
 
