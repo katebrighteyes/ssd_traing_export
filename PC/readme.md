@@ -83,7 +83,12 @@ cd train_models
 
 git checkout 5ed215b2ae0fd9650d1650953afcffdd23bb28f6
 
-train_image_classifier.py 592 line 에 다음과 같이 수정
+cd research/slim
+
+
+* train_image_classifier.py 592 line 에 다음과 같이 수정
+
+-------------------------
 
 vim train_image_classifier.py
 
@@ -103,7 +108,10 @@ vim train_image_classifier.py
         sync_optimizer=optimizer if FLAGS.sync_replicas else None,
         session_config = session_config,
         )
-        
+
+-----------------------------------
+cd ~/tf_ssd/tod
+
 ~/tf_ssd/tod$ mkdir googlenet
 
 cd googlenet
@@ -114,7 +122,16 @@ tar xzf inception_v1_2016_08_28.tar.gz
 
 $ cd ~/tf_ssd/tod/train_models/research/slim
 
-훈련 inceptionnet classification 
+* 데이터 다운로드
+
+cd ./models/research/slim
+
+python download_and_convert_data.py \
+    --dataset_name=flowers \
+    --dataset_dir=../../../flowers
+    
+
+* 훈련 inceptionnet classification 
 
 $ python train_image_classifier.py \
     --train_dir=/home/opencv-mds/tf_ssd/tod/trained \
@@ -134,7 +151,7 @@ $ python train_image_classifier.py \
     --optimizer=rmsprop \
     --weight_decay=0.00004
     
-평가
+* 평가
 
 $ python eval_image_classifier.py \
     -–alsologtostderr \
