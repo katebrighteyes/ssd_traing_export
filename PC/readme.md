@@ -16,10 +16,6 @@ sudo apt install python3-pip
 
 ## install virtualenv
 
-pip3 install virtualenv
-
-or
-
 sudo apt install virtualenv
 
 cd /
@@ -154,7 +150,7 @@ $ python train_image_classifier.py \
     
 * 평가
 
-mkdir ~/tf_ssd/tod/trained
+mkdir /tf_ssd/tod/trained
 
 $ python eval_image_classifier.py \
     -–alsologtostderr \
@@ -176,7 +172,7 @@ $ python eval_image_classifier.py \
 
 -----pycocotools install -----
 
-$ cd ~/tf_ssd/tod/train_models/research
+$ cd /tf_ssd/tod/train_models/research
 
 $ export PYTHONPATH=$PYTHONPATH:/home/opencv-mds/tf_ssd/tod/train_models/research:/home/opencv-mds/tf_ssd/tod/train_models/research/slim
 
@@ -186,12 +182,12 @@ $ cd cocoapi/PythonAPI
 
 $ make
 
-$ cp -r pycocotools ~/tf_ssd/tod/train_models/research/
+$ cp -r pycocotools /tf_ssd/tod/train_models/research/
 
 
 -----protocbuf install -------
 
-$ cd ~/tf_ssd/tod/train_models/research
+$ cd /tf_ssd/tod/train_models/research
 
 $ curl -OL https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
 
@@ -222,9 +218,11 @@ unzip tfrecord.zip
 
 # 3-3 train model modify
 
-cd ~/tf_ssd/tod/train_models/research
+cd /tf_ssd/tod/train_models/research
 
-$ vim ~/tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config line: 151, 152 -> 주석(#) 처리
+$ vim /tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config
+
+line: 151, 152 -> 주석(#) 처리
 
 해당 라인은 transfer learning을 하거나 fine_tuning할 때 사용하므로 현재는 사용하지 않는다.
 
@@ -236,7 +234,7 @@ line: 170,184 -> path설정
 
 line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
-172, 186: /tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt
+172, 186: /tf_ssd/tod/train_models/research/object_detection/data/mscoco_label_map.pbtxt
 
 ++++++++++++++++++++++++++++++++++++++++++
 
@@ -248,11 +246,11 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 170 tf_record_input_reader {
 
-171 input_path: "/home/opencv-mds/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
+171 input_path: "/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
 
 172 }
 
-173 label_map_path: "/home/opencv-mds/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
+173 label_map_path: "/tf_ssd/tod/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
 
 174 }
 
@@ -263,11 +261,11 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 184 tf_record_input_reader {
 
-185 input_path: "/home/opencv-mds/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
+185 input_path: "/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
 
 186 }
 
-187 label_map_path: "/home/opencv-mds/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
+187 label_map_path: "/tf_ssd/tod/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
 
 188 shuffle: false
 
@@ -275,16 +273,16 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 190 }
 
-메모리 여유가 없는 경우 136line 의 배치 사이즈를 4로 수정 필요 !!
+메모리 여유가 없는 경우 136line 의 배치 사이즈를 4 나 16로 수정 필요 !! (vm의 메모리를 보고 결정0
 
 
 # 3-4 train
 
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
 
-mkdir ~/tf_ssd/save_models/
+mkdir /tf_ssd/save_models/
 
-mkdir ~/tf_ssd/save_models/coco_test
+mkdir /tf_ssd/save_models/coco_test
 
 $ PIPELINE_CONFIG_PATH='/home/opencv-mds/tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 
@@ -320,7 +318,7 @@ $ deactivate
 
 # Open onother terminal
 
-$ cd
+$ cd /
 
 $ cd tf_ssd
 
@@ -345,13 +343,13 @@ please check different branch*
 
 $ cd research
 
-$ export PYTHONPATH=$PYTHONPATH:/home/nvidia/tf_ssd/export_models/research:/home/nvidia/tf_ssd/export_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/tf_ssd/export_models/research:/tf_ssd/export_models/research/slim
 
 $ protoc object_detection/protos/*.proto --python_out=.
 
 $ python object_detection/builders/model_builder_test.py
 
-cp ~/tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config ./object_detection/samples/configs/
+cp /tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config ./object_detection/samples/configs/
 
 $ vim ./object_detection/samples/configs/ssd_inception_v2_coco.config
 
