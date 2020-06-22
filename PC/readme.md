@@ -124,11 +124,9 @@ $ cd ~/tf_ssd/tod/train_models/research/slim
 
 * 데이터 다운로드
 
-cd  ~/tf_ssd/tod/models/research/slim
+cd  ~/tf_ssd/tod/train_models/research/slim
 
-python download_and_convert_data.py \
-    --dataset_name=flowers \
-    --dataset_dir=../../../flowers
+python download_and_convert_data.py --dataset_name=flowers --dataset_dir=../../../flowers
     
 
 * 훈련 inceptionnet classification 
