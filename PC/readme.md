@@ -252,7 +252,7 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 172 }
 
-173 label_map_path: "/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
+173 label_map_path: "/home/nvidia/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
 
 174 }
 
@@ -263,11 +263,11 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 184 tf_record_input_reader {
 
-185 input_path: "/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
+185 input_path: "/home/nvidia/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
 
 186 }
 
-187 label_map_path: "/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
+187 label_map_path: "/home/nvidia/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
 
 188 shuffle: false
 
@@ -282,13 +282,13 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
 
-mkdir /tf_ssd/save_models/
+mkdir ~/tf_ssd/save_models/
 
-mkdir /tf_ssd/save_models/coco_test
+mkdir ~/tf_ssd/save_models/coco_test
 
-$ PIPELINE_CONFIG_PATH='/tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
+$ PIPELINE_CONFIG_PATH='~/tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 
-$ MODEL_DIR='/tf_ssd/save_models/coco_test'
+$ MODEL_DIR='~/tf_ssd/save_models/coco_test'
 
 
 ( * SHORT TRAIN !! )
