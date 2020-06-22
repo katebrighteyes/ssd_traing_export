@@ -224,7 +224,7 @@ unzip tfrecord.zip
 
 cd ~/tf_ssd/tod/train_models/research
 
-$ vim /tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config line: 151, 152 -> 주석(#) 처리
+$ vim ~/tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config line: 151, 152 -> 주석(#) 처리
 
 해당 라인은 transfer learning을 하거나 fine_tuning할 때 사용하므로 현재는 사용하지 않는다.
 
@@ -248,11 +248,11 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 170 tf_record_input_reader {
 
-171 input_path: "/home/nvidia/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
+171 input_path: "/home/opencv-mds/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
 
 172 }
 
-173 label_map_path: "/home/nvidia/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
+173 label_map_path: "/home/opencv-mds/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
 
 174 }
 
@@ -263,11 +263,11 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 184 tf_record_input_reader {
 
-185 input_path: "/home/nvidia/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
+185 input_path: "/home/opencv-mds/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
 
 186 }
 
-187 label_map_path: "/home/nvidia/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
+187 label_map_path: "/home/opencv-mds/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
 
 188 shuffle: false
 
@@ -286,7 +286,7 @@ mkdir ~/tf_ssd/save_models/
 
 mkdir ~/tf_ssd/save_models/coco_test
 
-$ PIPELINE_CONFIG_PATH='~/tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
+$ PIPELINE_CONFIG_PATH='/home/opencv-mds/tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 
 $ MODEL_DIR='~/tf_ssd/save_models/coco_test'
 
