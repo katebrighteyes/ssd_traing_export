@@ -124,7 +124,7 @@ $ cd ~/tf_ssd/tod/train_models/research/slim
 
 * 데이터 다운로드
 
-cd ./models/research/slim
+cd  ~/tf_ssd/tod/models/research/slim
 
 python download_and_convert_data.py \
     --dataset_name=flowers \
