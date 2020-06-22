@@ -70,7 +70,10 @@ python mnist_cnn.py
 
 $ cd ~/tf_ssd/
 
-$ cd ~/tf_ssd/tod/train_models/research/slim
+mkdir tod
+
+cd tod
+
 
 $ git clone https://github.com/tensorflow/models.git
 
@@ -80,7 +83,9 @@ cd train_models
 
 git checkout 5ed215b2ae0fd9650d1650953afcffdd23bb28f6
 
-592 line 에 다음과 같이 수정
+train_image_classifier.py 592 line 에 다음과 같이 수정
+
+vim train_image_classifier.py
 
     session_config = tf.ConfigProto(allow_soft_placement=True)
 
