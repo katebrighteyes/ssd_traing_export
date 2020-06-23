@@ -1,0 +1,41 @@
+cd /tf_ssd
+mkdir datasets
+cd datasets
+
+ cp ~/dnnClass/pretrained.tar.gz ./
+ cp ~/dnnClass/cocodata.tar.gz ./
+ 
+ tar xzf pretrained.tar.gz
+ tar xzf cocodata.tar.gz
+
+$ vim /tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config
+
+**************************************************
+line: 151, 152 -> 
+  fine_tune_checkpoint: "/tf_ssd/datasets/pretrained/model.ckpt-6919"
+  from_detection_checkpoint: true
+**************************************************
+
+line: 170,184 -> path설정
+해당 라인에 적혀있는 path의 tfrecord를 train하므로 우리데이터셋 경로로 바꿔주자.
+170, 184: /tf_ssd/datasets/cocodata/tfrecords/ 여기에 ms만 지우면됨
+
+line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다. 
+172, 186: /tf_ssd/tod/train_models/research/object_detection/data/mscoco_label_map.pbtxt
+
+3-4 train
+이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
+mkdir /tf_ssd/tod/save_models/coco_test2
+
+$ PIPELINE_CONFIG_PATH='/tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
+$ MODEL_DIR='/tf_ssd/tod/save_models/coco_test2'
+
+**************************************
+$ NUM_TRAIN_STEPS=2000
+******************************************
+
+$ NUM_EVAL_STEPS=100
+$ SAMPLE_1_OF_N_EVAL_EXAMPLES=1
+$ export TF_CPP_MIN_LOG_LEVEL=2
+
+$ python object_detection/model_main.py --pipeline_config_path=${PIPELINE_CONFIG_PATH} --model_dir=${MODEL_DIR} --num_train_steps=${NUM_TRAIN_STEPS} --num_eval_steps=${NUM_EVAL_STEPS} --checkpoint_dir=${PRE_TRAIN} --sample_1_of_n_eval_examples=$SAMPLE_1_OF_N_EVAL_EXAMPLES --num_clones=1 --ps_tasks=1
