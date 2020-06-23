@@ -27,15 +27,19 @@ sudo docker exec -it TFTRT0 /bin/bash
 
 # cd /workspace/tensorrt/samples/sampleUffSSD
 
-# convert-to-uff --input-file /tf_ssd/pbfiles/frozen_inference_graph.pb -O NMS -p /ssd_ws/convert/config.py
+# convert-to-uff --input-file /ssd_ws/pbfiles/frozen_inference_graph.pb -O NMS -p /ssd_ws/convert/config.py
 
+파일 변환 끝
 * ===> UFF Output written to /tf_ssd/pbfiles/frozen_inference_graph.uff
  
+---------------------------------------------------------------------
+만약 테스트를 원한다면
 * frozen_inference_graph.uff 가 생성되면 /workspace/tensorrt/data/ssd 폴더로 이동시킨
 
-# cp /tf_ssd/pbfiles/frozen_inference_graph.uff /workspace/tensorrt/data/ssd
+# cp /ssd_ws/pbfiles/frozen_inference_graph.uff /workspace/tensorrt/data/ssd
 
 frozen_inference_graph.uff -> sample_ssd_relu6.uff 로 변경한다.(mv)
+
 # cd /workspace/tensorrt/data/ssd
 # mv frozen_inference_graph.uff sample_ssd_relu6.uff
 
