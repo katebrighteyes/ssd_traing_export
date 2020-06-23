@@ -1,4 +1,4 @@
-# guide for PC (no gpu)
+# guide for PC (no gpu) or VMWare
 
 ssd_traing_export
 #######################################################
