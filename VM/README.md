@@ -320,7 +320,7 @@ $ deactivate
 
 # Open onother terminal
 
-$ cd
+$ cd /
 
 $ cd tf_ssd
 
