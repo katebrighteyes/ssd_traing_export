@@ -25,10 +25,10 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 3-4 train
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
-mkdir /tf_ssd/tod/save_models/coco_test2
+mkdir /tf_ssd/save_models/coco_test2
 
 $ PIPELINE_CONFIG_PATH='/tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
-$ MODEL_DIR='/tf_ssd/tod/save_models/coco_test2'
+$ MODEL_DIR='/tf_ssd/save_models/coco_test2'
 
 **************************************
 $ NUM_TRAIN_STEPS=2000
