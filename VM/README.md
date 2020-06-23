@@ -331,6 +331,8 @@ $ source ./venvssd/bin/activate
 
 # 4-1 models for Export
 
+cd /tf_ssd/tod/
+
 $ git clone https://github.com/tensorflow/models.git
 
 $ mv models export_models
@@ -345,13 +347,13 @@ please check different branch*
 
 $ cd research
 
-$ export PYTHONPATH=$PYTHONPATH:/tf_ssd/export_models/research:/tf_ssd/export_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/tf_ssd/tod/export_models/research:/tf_ssd/tod/export_models/research/slim
 
 $ protoc object_detection/protos/*.proto --python_out=.
 
 $ python object_detection/builders/model_builder_test.py
 
-cp /tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config ./object_detection/samples/configs/
+cp /tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config ./object_detection/samples/configs/
 
 $ vim ./object_detection/samples/configs/ssd_inception_v2_coco.config
 
@@ -360,7 +362,7 @@ line 101: override 부분 주석
 $ INPUT_TYPE=image_tensor
 
 
-$ PIPELINE_CONFIG_PATH='/tf_ssd/export_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
+$ PIPELINE_CONFIG_PATH='/tf_ssd/tod/export_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 
 ls /tf_ssd/save_models/coco_test/
 
