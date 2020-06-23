@@ -345,13 +345,13 @@ please check different branch*
 
 $ cd research
 
-$ export PYTHONPATH=$PYTHONPATH:/home/nvidia/tf_ssd/export_models/research:/home/nvidia/tf_ssd/export_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/tf_ssd/export_models/research:/tf_ssd/export_models/research/slim
 
 $ protoc object_detection/protos/*.proto --python_out=.
 
 $ python object_detection/builders/model_builder_test.py
 
-cp ~/tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config ./object_detection/samples/configs/
+cp /tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config ./object_detection/samples/configs/
 
 $ vim ./object_detection/samples/configs/ssd_inception_v2_coco.config
 
@@ -366,7 +366,7 @@ ls /tf_ssd/save_models/coco_test/
 
 $ TRAINED_CKPT_PREFIX='/tf_ssd/save_models/coco_test/model.ckpt-20'
 
-mkdir ~/tf_ssd/pbfiles
+mkdir /tf_ssd/pbfiles
 
 ========================
 
