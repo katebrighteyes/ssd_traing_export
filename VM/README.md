@@ -10,6 +10,9 @@ So it can NEVER be perfect training !!
 #######################################################
 
 # 1. venv setting
+
+sudo apt-get install python2.7-dev python3-dev
+
 sudo apt install protobuf-compiler python3-tk -y
 
 sudo apt install python3-pip
@@ -64,7 +67,7 @@ python mnist_cnn.py
 
 # 2-2 Tensorflow slim TEST
 
-$ cd ~/tf_ssd/
+$ cd /tf_ssd/
 
 mkdir tod
 
@@ -106,9 +109,9 @@ vim train_image_classifier.py
         )
 
 -----------------------------------
-cd ~/tf_ssd/tod
+cd /tf_ssd/tod
 
-~/tf_ssd/tod$ mkdir googlenet
+/tf_ssd/tod$ mkdir googlenet
 
 cd googlenet
 
@@ -172,9 +175,9 @@ $ python eval_image_classifier.py \
 
 -----pycocotools install -----
 
-$ cd ~/tf_ssd/tod/train_models/research
+$ cd /tf_ssd/tod/train_models/research
 
-$ export PYTHONPATH=$PYTHONPATH:/home/opencv-mds/tf_ssd/tod/train_models/research:/home/opencv-mds/tf_ssd/tod/train_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/tf_ssd/tod/train_models/research:/tf_ssd/tod/train_models/research/slim
 
 $ git clone https://github.com/cocodataset/cocoapi.git
 
@@ -187,7 +190,7 @@ $ cp -r pycocotools ~/tf_ssd/tod/train_models/research/
 
 -----protocbuf install -------
 
-$ cd ~/tf_ssd/tod/train_models/research
+$ cd /tf_ssd/tod/train_models/research
 
 $ curl -OL https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
 
@@ -218,9 +221,10 @@ unzip tfrecord.zip
 
 # 3-3 train model modify
 
-cd ~/tf_ssd/tod/train_models/research
+cd /tf_ssd/tod/train_models/research
 
-$ vim ~/tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config line: 151, 152 -> 주석(#) 처리
+$ vim /tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config 
+line: 151, 152 -> 주석(#) 처리
 
 해당 라인은 transfer learning을 하거나 fine_tuning할 때 사용하므로 현재는 사용하지 않는다.
 
@@ -232,7 +236,7 @@ line: 170,184 -> path설정
 
 line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
-172, 186: /tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt
+172, 186: /tf_ssd/tod/train_models/research/object_detection/data/mscoco_label_map.pbtxt
 
 ++++++++++++++++++++++++++++++++++++++++++
 
@@ -244,11 +248,11 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 170 tf_record_input_reader {
 
-171 input_path: "/home/opencv-mds/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
+171 input_path: "/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
 
 172 }
 
-173 label_map_path: "/home/opencv-mds/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
+173 label_map_path: "/tf_ssd/tod/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
 
 174 }
 
@@ -259,11 +263,11 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 184 tf_record_input_reader {
 
-185 input_path: "/home/opencv-mds/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
+185 input_path: "/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
 
 186 }
 
-187 label_map_path: "/home/opencv-mds/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
+187 label_map_path: "/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
 
 188 shuffle: false
 
@@ -278,13 +282,13 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
 
-mkdir ~/tf_ssd/save_models/
+mkdir /tf_ssd/save_models/
 
-mkdir ~/tf_ssd/save_models/coco_test
+mkdir /tf_ssd/save_models/coco_test
 
-$ PIPELINE_CONFIG_PATH='/home/opencv-mds/tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
+$ PIPELINE_CONFIG_PATH='/tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 
-$ MODEL_DIR='/home/opencv-mds/tf_ssd/save_models/coco_test'
+$ MODEL_DIR='/tf_ssd/save_models/coco_test'
 
 
 ( * SHORT TRAIN !! )
