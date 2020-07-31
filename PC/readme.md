@@ -20,7 +20,7 @@ sudo apt install virtualenv
 
 cd /
 
-mkdir tf_ssd
+sudo mkdir tf_ssd
 
 cd tf_ssd
 
