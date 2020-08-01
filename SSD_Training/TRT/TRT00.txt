@@ -66,7 +66,10 @@ frozen_inference_graph.uff -> sample_ssd_relu6.uff 로 변경한다.(mv)
 
 # vim sampleUffSSD.cpp
 
-소스 49라인 수정 : threshold 값을 0.25 정도로 수정한다.  
+소스  49 라인 수정 : threshold 값을 0.25 정도로 수정한다.  
+
+소스 524 라인 수정 : auto fileName = locateFile("sample_ssd_relu_car.uff");
+
 
 샘플 빌드
 
