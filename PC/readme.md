@@ -279,20 +279,27 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
 
-mkdir /tf_ssd/save_models/
+mkdir /tf_ssd/tod/save_models/
 
-mkdir /tf_ssd/save_models/coco_test
+mkdir /tf_ssd/tod/save_models/coco_test
 
 $ PIPELINE_CONFIG_PATH='/tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 
-$ MODEL_DIR='/tf_ssd/save_models/coco_test'
+$ MODEL_DIR='/tf_ssd/tod/save_models/coco_test'
 
 
 ( * SHORT TRAIN !! )
-
-$ NUM_TRAIN_STEPS=20
+==============================
+$ NUM_TRAIN_STEPS=500
 
 $ NUM_EVAL_STEPS=2
+
+**************************************************
+**만약 transfer 러닝을 하려면
+$ NUM_TRAIN_STEPS=500
+******************************************
+
+$ NUM_EVAL_STEPS=100
 
 $ SAMPLE_1_OF_N_EVAL_EXAMPLES=1
 
@@ -332,6 +339,8 @@ $ source ./venvssd/bin/activate
 
 # 4-1 models for Export
 
+$ cd tod
+
 $ git clone https://github.com/tensorflow/models.git
 
 $ mv models export_models
@@ -346,13 +355,13 @@ please check different branch*
 
 $ cd research
 
-$ export PYTHONPATH=$PYTHONPATH:/tf_ssd/export_models/research:/tf_ssd/export_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/tf_ssd/tod/export_models/research:/tf_ssd/tod/export_models/research/slim
 
 $ protoc object_detection/protos/*.proto --python_out=.
 
 $ python object_detection/builders/model_builder_test.py
 
-cp /tf_ssd/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config ./object_detection/samples/configs/
+cp /tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config ./object_detection/samples/configs/
 
 $ vim ./object_detection/samples/configs/ssd_inception_v2_coco.config
 
@@ -361,17 +370,17 @@ line 101: override 부분 주석
 $ INPUT_TYPE=image_tensor
 
 
-$ PIPELINE_CONFIG_PATH='/tf_ssd/export_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
+$ PIPELINE_CONFIG_PATH='/tf_ssd/tod/export_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 
-ls /tf_ssd/save_models/coco_test/
+ls /tf_ssd/tod/save_models/coco_test/
 
-$ TRAINED_CKPT_PREFIX='/tf_ssd/save_models/coco_test/model.ckpt-20'
+$ TRAINED_CKPT_PREFIX='/tf_ssd/tod/save_models/coco_test/model.ckpt-500'
 
-mkdir ~/tf_ssd/pbfiles
+mkdir ~/tf_ssd/tod/pbfiles
 
 ========================
 
-$ EXPORT_DIR='/tf_ssd/pbfiles'
+$ EXPORT_DIR='/tf_ssd/tod/pbfiles'
 
 $ python object_detection/export_inference_graph.py
 --input_type=${INPUT_TYPE}
