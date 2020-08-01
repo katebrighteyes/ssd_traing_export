@@ -207,7 +207,7 @@ $ python object_detection/builders/model_builder_test.py
 
 * ctl-alt-t to open onother terminal.
 
-cd tf_ssd/
+cd /tf_ssd/
 
 scp ?? /tfrecord.zip ./
 
@@ -283,9 +283,9 @@ mkdir /tf_ssd/save_models/
 
 mkdir /tf_ssd/save_models/coco_test
 
-$ PIPELINE_CONFIG_PATH='/home/opencv-mds/tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
+$ PIPELINE_CONFIG_PATH='/tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 
-$ MODEL_DIR='/home/opencv-mds/tf_ssd/save_models/coco_test'
+$ MODEL_DIR='/tf_ssd/save_models/coco_test'
 
 
 ( * SHORT TRAIN !! )
