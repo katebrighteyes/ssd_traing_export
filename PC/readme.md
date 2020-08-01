@@ -388,4 +388,4 @@ $ python object_detection/export_inference_graph.py
 --trained_checkpoint_prefix=${TRAINED_CKPT_PREFIX}
 --output_directory=${EXPORT_DIR}
 
-$ ls /tf_ssd/pbfiles/
+$ ls /tf_ssd/tod/pbfiles/
