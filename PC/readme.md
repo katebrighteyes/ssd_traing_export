@@ -376,7 +376,7 @@ ls /tf_ssd/tod/save_models/coco_test/
 
 $ TRAINED_CKPT_PREFIX='/tf_ssd/tod/save_models/coco_test/model.ckpt-500'
 
-mkdir ~/tf_ssd/tod/pbfiles
+mkdir /tf_ssd/tod/pbfiles
 
 ========================
 
