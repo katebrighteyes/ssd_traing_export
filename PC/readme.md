@@ -107,9 +107,9 @@ vim train_image_classifier.py
         )
 
 -----------------------------------
-cd ~/tf_ssd/tod
+cd /tf_ssd/tod
 
-~/tf_ssd/tod$ mkdir googlenet
+/tf_ssd/tod$ mkdir googlenet
 
 cd googlenet
 
@@ -117,11 +117,9 @@ wget http://download.tensorflow.org/models/inception_v1_2016_08_28.tar.gz
 
 tar xzf inception_v1_2016_08_28.tar.gz
 
-$ cd ~/tf_ssd/tod/train_models/research/slim
-
 * 데이터 다운로드
 
-cd  ~/tf_ssd/tod/train_models/research/slim
+cd  /tf_ssd/tod/train_models/research/slim
 
 python download_and_convert_data.py --dataset_name=flowers --dataset_dir=../../../flowers
     
@@ -129,13 +127,13 @@ python download_and_convert_data.py --dataset_name=flowers --dataset_dir=../../.
 * 훈련 inceptionnet classification 
 
 $ python train_image_classifier.py \
-    --train_dir=/home/opencv-mds/tf_ssd/tod/trained \
+    --train_dir=/tf_ssd/tod/trained \
     --dataset_name=flowers \
     --dataset_split_name=train \
-    --dataset_dir=/home/opencv-mds/tf_ssd/tod/flowers \
+    --dataset_dir=/tf_ssd/tod/flowers \
     --model_name=inception_v1 \
     --max_number_of_steps=500 \
-    --checkpoint_path=/home/opencv-mds/tf_ssd/tod/googlenet/inception_v1.ckpt \
+    --checkpoint_path=/tf_ssd/tod/googlenet/inception_v1.ckpt \
     --checkpoint_exclude_scopes=InceptionV1/Logits \
     --trainable_scopes=InceptionV1/Logits \
     --batch_size=16 \
@@ -147,7 +145,7 @@ $ python train_image_classifier.py \
     --weight_decay=0.00004
     
   * ---> 한 줄로 표현
- $ python train_image_classifier.py --train_dir=/home/opencv-mds/tf_ssd/tod/trained --dataset_name=flowers --dataset_split_name=train   --dataset_dir=/home/opencv-mds/tf_ssd/tod/flowers --model_name=inception_v1 --max_number_of_steps=500  --checkpoint_path=/home/opencv-mds/tf_ssd/tod/googlenet/inception_v1.ckpt --checkpoint_exclude_scopes=InceptionV1/Logits --trainable_scopes=InceptionV1/Logits --batch_size=16  --learning_rate=0.01  --learning_rate_decay_type=fixed  --save_interval_secs=100  --log_every_n_steps_secs=100  --optimizer=rmsprop --weight_decay=0.00004
+ $ python train_image_classifier.py --train_dir=/tf_ssd/tod/trained --dataset_name=flowers --dataset_split_name=train   --dataset_dir=/tf_ssd/tod/flowers --model_name=inception_v1 --max_number_of_steps=500  --checkpoint_path=/tf_ssd/tod/googlenet/inception_v1.ckpt --checkpoint_exclude_scopes=InceptionV1/Logits --trainable_scopes=InceptionV1/Logits --batch_size=16  --learning_rate=0.01  --learning_rate_decay_type=fixed  --save_interval_secs=100  --log_every_n_steps_secs=100  --optimizer=rmsprop --weight_decay=0.00004
     
 * 평가
 
@@ -155,14 +153,14 @@ mkdir /tf_ssd/tod/trained
 
 $ python eval_image_classifier.py \
     -–alsologtostderr \
-    --checkpoint_path=/home/opencv-mds/tf_ssd/tod/trained \
-    --dataset_dir=/home/opencv-mds/tf_ssd/tod/flowers \
+    --checkpoint_path=/tf_ssd/tod/trained \
+    --dataset_dir=/tf_ssd/tod/flowers \
     --dataset_name=flowers \
     --dataset_split_name=validation \
     --model_name=inception_v1
 
   * ---> 한 줄로 표현
- $ python eval_image_classifier.py -–alsologtostderr  --checkpoint_path=/home/opencv-mds/tf_ssd/tod/trained --dataset_dir=/home/opencv-mds/tf_ssd/tod/flowers  --dataset_name=flowers  --dataset_split_name=validation --model_name=inception_v1
+ $ python eval_image_classifier.py -–alsologtostderr  --checkpoint_path=/tf_ssd/tod/trained --dataset_dir=/tf_ssd/tod/flowers  --dataset_name=flowers  --dataset_split_name=validation --model_name=inception_v1
 
 
 # 3 SSD Object Detection
@@ -175,7 +173,7 @@ $ python eval_image_classifier.py \
 
 $ cd /tf_ssd/tod/train_models/research
 
-$ export PYTHONPATH=$PYTHONPATH:/home/opencv-mds/tf_ssd/tod/train_models/research:/home/opencv-mds/tf_ssd/tod/train_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/tf_ssd/tod/train_models/research:/tf_ssd/tod/train_models/research/slim
 
 $ git clone https://github.com/cocodataset/cocoapi.git
 
