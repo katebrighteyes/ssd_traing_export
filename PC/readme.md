@@ -16,7 +16,7 @@ sudo apt install python3-pip
 
 ## install virtualenv
 
-sudo apt install virtualenv
+sudo apt install virtualenv -y
 
 cd /
 
