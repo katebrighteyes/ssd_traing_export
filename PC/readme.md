@@ -38,8 +38,7 @@ pip install tensorflow==1.14.0 Cython contextlib2 matplotlib pillow lxml
 
 $ sudo apt-get update
 
-$ sudo apt install python-tk -y
-$ sudo apt-get install python3-tk -y
+$ sudo apt install python-tk python3-tk -y
 
 $ pip install gast==0.2.2
 
