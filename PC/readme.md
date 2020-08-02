@@ -1,4 +1,4 @@
-# guide for PC (no gpu)
+ti# guide for PC (no gpu)
 
 ssd_traing_export
 #######################################################
@@ -287,18 +287,9 @@ $ PIPELINE_CONFIG_PATH='/tf_ssd/tod/train_models/research/object_detection/sampl
 $ MODEL_DIR='/tf_ssd/tod/save_models/coco_test'
 
 
-( * SHORT TRAIN !! )
-==============================
-$ NUM_TRAIN_STEPS=500
+$ NUM_TRAIN_STEPS=20
 
 $ NUM_EVAL_STEPS=2
-
-**************************************************
-**만약 transfer 러닝을 하려면
-$ NUM_TRAIN_STEPS=500
-******************************************
-
-$ NUM_EVAL_STEPS=100
 
 $ SAMPLE_1_OF_N_EVAL_EXAMPLES=1
 
@@ -315,10 +306,15 @@ export TF_CPP_MIN_LOG_LEVEL=2
 $ python object_detection/model_main.py --pipeline_config_path=${PIPELINE_CONFIG_PATH} --model_dir=${MODEL_DIR} --num_train_steps=${NUM_TRAIN_STEPS} --num_eval_steps=${NUM_EVAL_STEPS} --checkpoint_dir=${PRE_TRAIN} --sample_1_of_n_eval_examples=$SAMPLE_1_OF_N_EVAL_EXAMPLES --num_clones=1 --ps_tasks=1
 
 
+1시에 시작 10분이면 end
+
+============================================
+
+* 텐서 보드 보기
+
 tensorboard --logdir=/tf_ssd/save_models/coco_test
 
 
-1시에 시작 10분이면 end
 ============================================
 
 # dectivate !!!!
