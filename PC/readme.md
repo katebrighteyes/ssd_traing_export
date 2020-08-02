@@ -369,7 +369,7 @@ $ PIPELINE_CONFIG_PATH='/tf_ssd/tod/export_models/research/object_detection/samp
 
 ls /tf_ssd/tod/save_models/coco_test/
 
-$ TRAINED_CKPT_PREFIX='/tf_ssd/tod/save_models/coco_test/model.ckpt-500'
+$ TRAINED_CKPT_PREFIX='/tf_ssd/tod/save_models/coco_test/model.ckpt-20'
 
 mkdir /tf_ssd/tod/pbfiles
 
@@ -377,10 +377,7 @@ mkdir /tf_ssd/tod/pbfiles
 
 $ EXPORT_DIR='/tf_ssd/tod/pbfiles'
 
-$ python object_detection/export_inference_graph.py
---input_type=${INPUT_TYPE}
---pipeline_config_path=${PIPELINE_CONFIG_PATH}
---trained_checkpoint_prefix=${TRAINED_CKPT_PREFIX}
---output_directory=${EXPORT_DIR}
+$ python object_detection/export_inference_graph.py --input_type=${INPUT_TYPE} --pipeline_config_path=${PIPELINE_CONFIG_PATH} --trained_checkpoint_prefix=${TRAINED_CKPT_PREFIX} --output_directory=${EXPORT_DIR}
+
 
 $ ls /tf_ssd/tod/pbfiles/
