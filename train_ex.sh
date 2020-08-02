@@ -1,13 +1,7 @@
 
-mkdir ~/tf_ssd/tod/save_models/
+PIPELINE_CONFIG_PATH='/tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 
-mkdir ~/tf_ssd/tod/save_models/coco_test
-
-cd ~/tf_ssd/tod/train_models/research
-
-PIPELINE_CONFIG_PATH='/home/opencv-mds/tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
-
-MODEL_DIR='/home/opencv-mds/tf_ssd/tod/save_models/coco_test'
+MODEL_DIR='/tf_ssd/tod/save_models/coco_test'
 
 #vBox 의 경우 저장공간도 부족 !!
 
