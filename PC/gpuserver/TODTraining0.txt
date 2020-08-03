@@ -1,7 +1,7 @@
 <ssd0>
 sudo NV_GPU=0 nvidia-docker run --name TFSSD0 -it -d --net=host \
  -v "/drv3/tf_ssd/share:/ssd_ws" \
- tensorflow/tensorflow:1.12.0-gpu-py3
+ tensorflow/tensorflow:1.14.0-gpu-py3
 
 sudo docker exec -it TFSSD0 /bin/bash
 sudo docker restart TFSSD0
@@ -18,14 +18,13 @@ $ apt-get install git vim
 ==========================================================================================================================================================================
 2-1 Train용
 $ cd /ssd_ws
-mkdir tod0
 cd tod0
 
 $ git clone https://github.com/tensorflow/models.git
 $ mv models train_models
 $ cd train_models
 
-$ git checkout -b 426b2c6e894c22ffb17f32581305ea87c3b8b377
+git checkout 5ed215b2ae0fd9650d1650953afcffdd23bb28f6
 
 2-3 pycocotools, protocbuf 설치
 -----pycocotools 설치-----
@@ -58,7 +57,7 @@ OK가 뜨면 성공
 $ vim /ssd_ws/tod0/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config
 
 **************************************************
-line: 151, 152 -> 주석(#) 처리
+line: 151, 152 
 해당 라인은 transfer learning을 하거나 fine_tuning할 때 사용하므로 현재는 사용하지 않는다.
 **************************************************
 **만약 transfer 러닝을 하려면 이렇게
@@ -77,17 +76,16 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 3-4 train
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
-mkdir /ssd_ws/tod0/save_models/ 
-mkdir /ssd_ws/tod0/save_models/coco_test
+mkdir /ssd_ws/classex/opt00/save_models/ 
 
 $ PIPELINE_CONFIG_PATH='/ssd_ws/tod0/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
-$ MODEL_DIR='/ssd_ws/tod0/save_models/coco_test'
+$ MODEL_DIR='/ssd_ws/classex/opt00/save_models/'
 
 **************************************
 $ NUM_TRAIN_STEPS=10000
 **************************************************
 **만약 transfer 러닝을 하려면
-$ NUM_TRAIN_STEPS=5000
+$ NUM_TRAIN_STEPS=1000
 ******************************************
 
 $ NUM_EVAL_STEPS=100
@@ -158,10 +156,10 @@ $ INPUT_TYPE=image_tensor
 
 -----------------------------
 $ PIPELINE_CONFIG_PATH='/ssd_ws/tod0/export_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
-ls /ssd_ws/tod0/save_models/coco_test/
+ls /ssd_ws/classex/opt00/save_models/
 
 **************************************************
-$ TRAINED_CKPT_PREFIX='/ssd_ws/tod0/save_models/coco_test/model.ckpt-10000'
+$ TRAINED_CKPT_PREFIX='/ssd_ws/classex/opt00/save_models/coco_test/model.ckpt-10000'
 
 **************************************************
 **만약 transfer 러닝을 하였다면 이렇게. -> 사실 그냥 가장 큰 숫자의 ckpt 를 사용하면 된다.
@@ -169,9 +167,9 @@ $ TRAINED_CKPT_PREFIX='/ssd_ws/tod0/save_models/coco_test/model.ckpt-10000'
 $ TRAINED_CKPT_PREFIX='/ssd_ws/tod0/save_models/coco_test/model.ckpt-5000'
 **************************************************
 
-mkdir /ssd_ws/tod0/pbfiles
+mkdir /ssd_ws/classex/opt00/pbfiles
 
-$ EXPORT_DIR='/ssd_ws/tod0/pbfiles'
+$ EXPORT_DIR='/ssd_ws/classex/opt00/pbfiles'
 
 ================================
 4-4 Export pb
