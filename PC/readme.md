@@ -222,7 +222,8 @@ $ vim /tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inc
 
 line: 151, 152 -> 주석(#) 처리
 
-해당 라인은 transfer learning을 하거나 fine_tuning할 때 사용하므로 현재는 사용하지 않는다.
+fine_tune_checkpoint: "/tf_ssd/pretrained/coco_test/model.ckpt-10000"   
+from_detection_checkpoint: true 
 
 line: 170,184 -> path설정
 
