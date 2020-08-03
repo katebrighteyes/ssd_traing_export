@@ -1,4 +1,4 @@
-ti# guide for PC (no gpu)
+# guide for PC (no gpu)
 
 ssd_traing_export
 #######################################################
@@ -64,7 +64,7 @@ python mnist_cnn.py
 
 # 2-2 Tensorflow slim TEST
 
-$ cd ~/tf_ssd/
+$ cd /tf_ssd/
 
 mkdir tod
 
