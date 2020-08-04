@@ -370,7 +370,7 @@ $ PIPELINE_CONFIG_PATH='/tf_ssd/tod/export_models/research/object_detection/samp
 
 ls /tf_ssd/tod/save_models/coco_test/
 
-$ TRAINED_CKPT_PREFIX='/tf_ssd/tod/save_models/coco_test/model.ckpt-20'
+$ TRAINED_CKPT_PREFIX='/tf_ssd/tod/save_models/coco_test/model.ckpt-10000'
 
 mkdir /tf_ssd/tod/pbfiles
 
