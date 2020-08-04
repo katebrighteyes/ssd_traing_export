@@ -59,3 +59,6 @@ frozen_inference_graph.uff -> sample_ssd_relu6.uff 로 변경한다.(mv)
 # ./sample_uff_ssd
 
 * and check the output files.
+
+
+pip install grpcio==1.11.0
