@@ -15,9 +15,13 @@ $ sudo apt install python3-pip
 
 $ pip3 install virtualenv
 
+$ cd /
+
 $ mkdir tf_ssd
 
 $ cd tf_ssd
+
+$ sudo chmod 777 .
 
 $ virtualenv venvssd
 
