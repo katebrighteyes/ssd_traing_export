@@ -18,6 +18,9 @@ sudo docker exec -it TFTRT0 /bin/bash
 *run this sh srcript as soon as container start.
 *최초 한번 실행
 * 이미 만들어진 컨테이너에서는 실행하지 말아주십시오.
+
+*pip install grpcio==1.11.0
+
 /opt/tensorrt/python/python_setup.sh
 ************************************************************************
 
@@ -26,23 +29,21 @@ sudo docker exec -it TFTRT0 /bin/bash
 
 # cd /workspace/tensorrt/samples/sampleUffSSD
 
-# convert-to-uff --input-file /ssd_ws/classex/opt00/pbfiles/my_frozen.pb -O NMS -p /ssd_ws/convert/config.py
+# convert-to-uff --input-file /ssd_ws/convert/frozen_inference_graph.pb convert-to-uff --input-file /ssd_ws/
 
-* ===> UFF Output written to /ssd_ws/tod0/pbfiles/my_frozen.uff
+* ===> UFF Output written to /ssd_ws/convert/frozen_inference_graph.uff
  
-* my_frozen.uff 가 생성되면 /workspace/tensorrt/data/ssd 폴더로 이동시킨
+* frozen_inference_graph.uff 가 생성되면 /workspace/tensorrt/data/ssd 폴더로 이동시킨
 
-# cp /ssd_ws/tod0/pbfiles/my_frozen.uff /workspace/tensorrt/data/ssd
+# cp /ssd_ws/convert/frozen_inference_graph.uff /workspace/tensorrt/data/ssd/sample_ssd_relu6.uff
 
-# cd /workspace/tensorrt/data/ssd
+# ls /workspace/tensorrt/data/ssd
 
 # cd /workspace/tensorrt/samples/sampleUffSSD
 
 # vim sampleUffSSD.cpp
 
 소스 49라인 수정 : threshold 값을 0.25 정도로 수정한다.  
-
-uff 파일 이름을 my_frozen.uff 로 변경한다.
 
 
 샘플 빌드
@@ -59,9 +60,8 @@ uff 파일 이름을 my_frozen.uff 로 변경한다.
 # ./sample_uff_ssd
 
 * and check the output files.
+cp car-*.ppm /ssd_ws/
 
 
 
 
-
-*혹시 스크립트 에러나면 pip install grpcio==1.11.0
