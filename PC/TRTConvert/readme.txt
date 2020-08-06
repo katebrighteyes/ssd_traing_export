@@ -5,6 +5,11 @@
 sudo nvidia-docker run --name TFTRT0 -it -d --net=host \
  -v "/tf_ssd/convert:/ssd_ws" \
  nvcr.io/nvidia/tensorrt:19.01-py3
+ 
+ 혹시 에러가 나면 
+ sudo systemctl restart docker
+ 먼저 실행하고 다시 시도해주세요.
+ 
 ************************************************************************
 
 
