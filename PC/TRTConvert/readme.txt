@@ -24,9 +24,12 @@ sudo docker exec -it TFTRT0 /bin/bash
 *최초 한번 실행
 * 이미 만들어진 컨테이너에서는 실행하지 말아주십시오.
 
-*pip install grpcio==1.11.0
-
 /opt/tensorrt/python/python_setup.sh
+
+혹시 grpcio 실행 중 진행이 멈춰져 있으면 Ctl-C 로 멈추고
+아래와 같이 grpcio 를 설치해주세요.
+pip install grpcio==1.11.0
+그리고 나서 다시 /opt/tensorrt/python/python_setup.sh 실행해주세요.
 ************************************************************************
 
 2.  pb 를 UFF 컨버팅
