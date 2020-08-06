@@ -1,0 +1,31 @@
+   * ubuntu 16.04
+   
+   27  cd /etc/apt
+   28  ls
+   29  sudo cp sources.list sources.list.back
+   31  sudo cp ~/Downloads/sources.list ./   
+   32  sudo apt-get  update
+   
+   * 기본 유틸리티 설치
+
+   35  sudo apt-get install vim curl git openssh-server openssh-client cmake -y
+
+ * ubuntu 16.04 이기 때문에 별도 설치
+       sudo apt-key add ~/Downloads/pub.pgp
+       sudo apt-key add ~/Downloads/key.pgp
+    
+* Docker 설치    
+   36  curl -fsSL https://get.docker.com/ | sudo sh
+   
+* Nvidia-Docker 설치   
+   37  distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+   38  curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add - 
+   41  curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list 
+   42  sudo apt-get update
+   43  sudo apt-get install -y nvidia-container-toolkit
+   44  sudo systemctl restart docker
+   45  sudo systemctl status docker
+   
+   47  sudo docker run --gpus all nvidia/cuda:10.0-base nvidia-smi
+   48  sudo apt-get install nvidia-docker2
+   
