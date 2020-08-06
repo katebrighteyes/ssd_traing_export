@@ -34,7 +34,7 @@ sudo docker exec -it TFTRT0 /bin/bash
 
 # cd /workspace/tensorrt/samples/sampleUffSSD
 
-# convert-to-uff --input-file /ssd_ws/convert/frozen_inference_graph.pb convert-to-uff --input-file /ssd_ws/
+# convert-to-uff --input-file /ssd_ws/convert/frozen_inference_graph.pb -O NMS -p /ssd_ws/convert/config.py
 
 * ===> UFF Output written to /ssd_ws/convert/frozen_inference_graph.uff
  
