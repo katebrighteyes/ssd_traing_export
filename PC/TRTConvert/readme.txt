@@ -2,8 +2,8 @@
 실습 시에는 만들어진 것을 사용해주시고
 현업에서는 한번 만들어서 계속 사용하면 됩니다.
 
-sudo nvidia-docker run --name TFTRT0 -it -d --net=host \
- -v "/tf_ssd/convert:/ssd_ws" \
+sudo nvidia-docker run --name TFTRT1 -it -d --net=host \
+ -v "/tf_ssd:/ssd_ws" \
  nvcr.io/nvidia/tensorrt:19.01-py3
  
  혹시 에러가 나면 
