@@ -1,6 +1,12 @@
 
 rm -rf /tf_ssd/tod/save_models/coco_test/*
 
+vim /tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config
+
+*if you want to change dataset,
+
+*modify 170, 182 line to new tfrecord folder.
+
 PIPELINE_CONFIG_PATH='/tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 
 MODEL_DIR='/tf_ssd/tod/save_models/coco_test'
