@@ -9,10 +9,9 @@
      dataset/cocodata/tfrecords/
      
 <tfssd>
-sudo NV_GPU=0 nvidia-docker run --name TFSSD00 -it -d --net=host \
+sudo NV_GPU=0 nvidia-docker run --name TFSSD -it -d --net=host \
      
- -v "/drv3/tf_ssd/share:/ssd_ws" \
- 
+ -v "/tf_ssd/share:/ssd_ws" \ 
  tensorflow/tensorflow:1.14.0-gpu-py3
 
 
