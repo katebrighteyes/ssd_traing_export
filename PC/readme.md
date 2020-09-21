@@ -222,7 +222,7 @@ $ vim /tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inc
 
 line: 151, 152 -> 주석(#) 처리
 
-fine_tune_checkpoint: "/tf_ssd/pretrained/coco_test/model.ckpt-10000"   
+fine_tune_checkpoint: "/tf_ssd/pretrained/model.ckpt-6919"   
 from_detection_checkpoint: true 
 
 line: 170,184 -> path설정
