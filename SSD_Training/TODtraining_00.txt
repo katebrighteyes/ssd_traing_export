@@ -31,7 +31,7 @@ $ git checkout -b 426b2c6e894c22ffb17f32581305ea87c3b8b377
 -----pycocotools 설치-----
 $ cd /ssd_ws/tod00/train_models/research
 
-$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod00/train_models/research:/ssd_ws/tod00/train_models/research/slim
+$ export PYTHONPATH=$PYTHONPATH:/ssd_ws/tod/train_models/research:/ssd_ws/tod00/train_models/research/slim
 
 $ git clone https://github.com/cocodataset/cocoapi.git
 $ cd cocoapi/PythonAPI
@@ -73,15 +73,15 @@ line: 170,184 -> path설정
 170, 184: /ssd_ws/dataset/cocodata/tfrecords/ 여기에 ms만 지우면됨
 
 line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다. 
-172, 186: /ssd_ws/tod00/train_models/research/object_detection/data/mscoco_label_map.pbtxt
+172, 186: /ssd_ws/tod/train_models/research/object_detection/data/mscoco_label_map.pbtxt
 
 3-4 train
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
-mkdir /ssd_ws/tod00/save_models/ 
-mkdir /ssd_ws/tod00/save_models/coco_test
+mkdir /ssd_ws/tod/save_models/ 
+mkdir /ssd_ws/tod/save_models/coco_test
 
 $ PIPELINE_CONFIG_PATH='/ssd_ws/tod00/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
-$ MODEL_DIR='/ssd_ws/tod00/save_models/coco_test'
+$ MODEL_DIR='/ssd_ws/tod/save_models/coco_test'
 
 **************************************
 $ NUM_TRAIN_STEPS=10000
