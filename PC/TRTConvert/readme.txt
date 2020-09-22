@@ -2,7 +2,7 @@
 실습 시에는 만들어진 것을 사용해주시고
 현업에서는 한번 만들어서 계속 사용하면 됩니다.
 
-sudo nvidia-docker run --name TFTRT1 -it -d --net=host \
+sudo nvidia-docker run --name TFTRT -it -d --net=host \
  -v "/tf_ssd:/ssd_ws" \
  nvcr.io/nvidia/tensorrt:19.01-py3
  
@@ -13,11 +13,11 @@ sudo nvidia-docker run --name TFTRT1 -it -d --net=host \
 ************************************************************************
 
 
-* IITPTRT0 라는 컨테이너를 시작한다.
-sudo docker restart TFTRT0
+* IITPTRT 라는 컨테이너를 시작한다.
+sudo docker restart TFTRT
 
-* IITPTRT0 라는 컨테이너에 들어간다.
-sudo docker exec -it TFTRT0 /bin/bash
+* IITPTRT 라는 컨테이너에 들어간다.
+sudo docker exec -it TFTRT /bin/bash
 
 ***********************************************************************
 *run this sh srcript as soon as container start.
