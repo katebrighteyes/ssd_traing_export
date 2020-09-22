@@ -1,0 +1,7 @@
+<<small size tfrecord.zip 의 링크>>
+
+https://drive.google.com/file/d/1Jn3NlvnPWRutVHPvK_659d1yLBX2YGn_/view?usp=sharing
+
+<<pretrained checkpoint 파일들의 링크>>
+
+https://drive.google.com/file/d/1puh72YoiTgiuejIOH11dRYL7bEIlkeMp/view?usp=sharing
