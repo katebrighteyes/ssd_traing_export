@@ -4,12 +4,15 @@ mkdir tod
 
 ----------------------------------------------------
 2-0 install package
-$ pip install lxml
-$ pip install pillow
-$ pip install Cython
-$ apt-get update
-$ apt-get install python3-tk
-$ pip install --user contextlib2
+
+$ pip install tensorflow==1.14.0 Cython contextlib2 matplotlib pillow lxml
+
+$ sudo apt-get update
+
+$ sudo apt install python-tk python3-tk -y
+
+$ pip install gast==0.2.2
+
 $ apt-get install git vim 
 ==========================================================================================================================================================================
 2-1 Train용
