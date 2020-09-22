@@ -5,3 +5,9 @@ https://drive.google.com/file/d/1Jn3NlvnPWRutVHPvK_659d1yLBX2YGn_/view?usp=shari
 <<pretrained checkpoint 파일들의 링크>>
 
 https://drive.google.com/file/d/1puh72YoiTgiuejIOH11dRYL7bEIlkeMp/view?usp=sharing
+
+<<전체 크기의 tfrecord.zip 의 링크>>
+* 사이즈가 2G 이므로 공간 확보 필요
+
+https://drive.google.com/file/d/1rsS-U8nC9fTkJQ48bDyJO-NBkVDldxDR/view?usp=sharing
+
