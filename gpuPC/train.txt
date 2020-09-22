@@ -1,0 +1,23 @@
+cd ssd_ws
+
+mkdir tod
+
+----------------------------------------------------
+2-0 install package
+$ pip install lxml
+$ pip install pillow
+$ pip install Cython
+$ apt-get update
+$ apt-get install python3-tk
+$ pip install --user contextlib2
+$ apt-get install git vim 
+==========================================================================================================================================================================
+2-1 Train용
+$ cd /ssd_ws
+cd tod
+
+$ git clone https://github.com/tensorflow/models.git
+$ mv models train_models
+$ cd train_models
+
+git checkout 5ed215b2ae0fd9650d1650953afcffdd23bb28f6
