@@ -4,7 +4,7 @@
 
 =
 
-/tf_ssd/share
+/tf_ssd/shared
 
      dataset/cocodata/tfrecords/
      
