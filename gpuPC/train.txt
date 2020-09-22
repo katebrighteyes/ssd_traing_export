@@ -62,7 +62,7 @@ line: 151, 152
 **만약 transfer 러닝을 하려면 이렇게
 ** model.ckpt 다음 숫자는 실제로 pretrained 된 체크포인트 파일 이름을 따른다.
 
-  fine_tune_checkpoint: "/ssd_ws/dataset/pretrained/model.ckpt-10000"
+  fine_tune_checkpoint: "/ssd_ws/pretrained/model.ckpt-8277"
   from_detection_checkpoint: true
 **************************************************
 
@@ -75,16 +75,16 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 3-4 train
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
-mkdir /tf_ssd/tod/save_models/ 
+mkdir /ssd_ws/tod/save_models/ 
 
-$ PIPELINE_CONFIG_PATH='/tf_ssd/shared/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
+$ PIPELINE_CONFIG_PATH='/ssd_ws/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 $ MODEL_DIR='/ssd_ws/tod/save_models/'
 
 **************************************
 $ NUM_TRAIN_STEPS=10000
 **************************************************
 **만약 transfer 러닝을 하려면
-$ NUM_TRAIN_STEPS=1000
+$ NUM_TRAIN_STEPS=2000
 ******************************************
 
 $ NUM_EVAL_STEPS=100
