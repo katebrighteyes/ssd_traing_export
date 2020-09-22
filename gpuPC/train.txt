@@ -5,7 +5,7 @@ mkdir tod
 ----------------------------------------------------
 2-0 install package
 
-$ pip install tensorflow==1.14.0 Cython contextlib2 matplotlib pillow lxml
+$ pip install Cython contextlib2 matplotlib pillow lxml
 
 $ sudo apt-get update
 
