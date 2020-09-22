@@ -11,7 +11,7 @@
 <tfssd>
 sudo NV_GPU=0 nvidia-docker run --name TFSSD -it -d --net=host \
      
- -v "/tf_ssd/share:/ssd_ws" \ 
+ -v "/tf_ssd/shared:/ssd_ws" \ 
  tensorflow/tensorflow:1.14.0-gpu-py3
 
 
