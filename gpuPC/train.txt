@@ -73,6 +73,24 @@ line: 170,184 -> path설정
 line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다. 
 172, 186: /ssd_ws/tod/train_models/research/object_detection/data/mscoco_label_map.pbtxt
 
+==============
+train_input_reader: {
+  tf_record_input_reader {
+    input_path: "/ssd_ws/dataset/cocodata/tfrecords/coco_train.record-?????-of-00100"
+  }
+  label_map_path: "/ssd_ws/tod/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
+}
+......
+eval_input_reader: {
+  tf_record_input_reader {
+    input_path: "/ssd_ws/dataset/cocodata/tfrecords/coco_val.record-?????-of-00010"
+  }
+  label_map_path: "/ssd_ws/tod/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
+  shuffle: false
+  num_readers: 1
+}
+==============
+
 3-4 train
 이제 학습에 필요한 파라미터들을 설정해주고 실행하면 된다.
 mkdir /ssd_ws/tod/save_models/ 
