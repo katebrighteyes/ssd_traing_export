@@ -1,0 +1,16 @@
+#****venv 에서 다시 export 할때***
+
+cd /tf_ssd
+
+# 1. start venv
+source ./venvssd/bin/activate
+
+cd /tf_ssd/tod/export_models/research
+
+# 2. 파이썬 환경 세팅
+export PYTHONPATH=$PYTHONPATH:/tf_ssd/tod/export_models/research:/tf_ssd/tod/export_models/research/slim
+
+#3. 슬림 환경 세팅
+
+protoc object_detection/protos/*.proto --python_out=.
+python object_detection/builders/model_builder_test.py
