@@ -11,11 +11,11 @@ NEED more than 1080ti ...
 
 # 1. venv setting
 
-sudo apt-get install python2.7-dev python3-dev
+sudo apt-get install python2.7-dev python3-dev -y
 
-sudo apt install protobuf-compiler python3-tk -y
+sudo apt install protobuf-compiler python-tk python3-tk -y
 
-sudo apt install python3-pip
+sudo apt install python-pip python3-pip -y
 
 ## install virtualenv
 
