@@ -41,8 +41,6 @@ pip install tensorflow==1.14.0 Cython contextlib2 matplotlib pillow lxml
 
 $ sudo apt-get update
 
-$ sudo apt-get install python3-tk
-
 pip install gast==0.2.2
 
 # 2-1 Tensorflow TEST
@@ -73,7 +71,6 @@ mkdir tod
 
 cd tod
 
-
 $ git clone https://github.com/tensorflow/models.git
 
 $ mv models train_models
@@ -82,94 +79,9 @@ cd train_models
 
 git checkout 5ed215b2ae0fd9650d1650953afcffdd23bb28f6
 
-cd research/slim
-
-
-* train_image_classifier.py 592 line 에 다음과 같이 수정
-
--------------------------
-
-vim train_image_classifier.py
-
-    session_config = tf.ConfigProto(allow_soft_placement=True)
-
-    slim.learning.train(
-        train_tensor,
-        logdir=FLAGS.train_dir,
-        master=FLAGS.master,
-        is_chief=(FLAGS.task == 0),
-        init_fn=_get_init_fn(),
-        summary_op=summary_op,
-        number_of_steps=FLAGS.max_number_of_steps,
-        log_every_n_steps=FLAGS.log_every_n_steps,
-        save_summaries_secs=FLAGS.save_summaries_secs,
-        save_interval_secs=FLAGS.save_interval_secs,
-        sync_optimizer=optimizer if FLAGS.sync_replicas else None,
-        session_config = session_config,
-        )
-
------------------------------------
-cd /tf_ssd/tod
-
-/tf_ssd/tod$ mkdir googlenet
-
-cd googlenet
-
-wget http://download.tensorflow.org/models/inception_v1_2016_08_28.tar.gz
-
-tar xzf inception_v1_2016_08_28.tar.gz
-
-$ cd ~/tf_ssd/tod/train_models/research/slim
-
-* 데이터 다운로드
-
-cd  ~/tf_ssd/tod/train_models/research/slim
-
-python download_and_convert_data.py --dataset_name=flowers --dataset_dir=../../../flowers
-    
-
-* 훈련 inceptionnet classification 
-
-$ python train_image_classifier.py \
-    --train_dir=/home/opencv-mds/tf_ssd/tod/trained \
-    --dataset_name=flowers \
-    --dataset_split_name=train \
-    --dataset_dir=/home/opencv-mds/tf_ssd/tod/flowers \
-    --model_name=inception_v1 \
-    --max_number_of_steps=500 \
-    --checkpoint_path=/home/opencv-mds/tf_ssd/tod/googlenet/inception_v1.ckpt \
-    --checkpoint_exclude_scopes=InceptionV1/Logits \
-    --trainable_scopes=InceptionV1/Logits \
-    --batch_size=16 \
-    --learning_rate=0.01 \
-    --learning_rate_decay_type=fixed \
-    --save_interval_secs=100 \
-    --log_every_n_steps_secs=100 \
-    --optimizer=rmsprop \
-    --weight_decay=0.00004
-    
-  * ---> 한 줄로 표현
- $ python train_image_classifier.py --train_dir=/home/opencv-mds/tf_ssd/tod/trained --dataset_name=flowers --dataset_split_name=train   --dataset_dir=/home/opencv-mds/tf_ssd/tod/flowers --model_name=inception_v1 --max_number_of_steps=500  --checkpoint_path=/home/opencv-mds/tf_ssd/tod/googlenet/inception_v1.ckpt --checkpoint_exclude_scopes=InceptionV1/Logits --trainable_scopes=InceptionV1/Logits --batch_size=16  --learning_rate=0.01  --learning_rate_decay_type=fixed  --save_interval_secs=100  --log_every_n_steps_secs=100  --optimizer=rmsprop --weight_decay=0.00004
-    
-* 평가
-
-mkdir ~/tf_ssd/tod/trained
-
-$ python eval_image_classifier.py \
-    -–alsologtostderr \
-    --checkpoint_path=/home/opencv-mds/tf_ssd/tod/trained \
-    --dataset_dir=/home/opencv-mds/tf_ssd/tod/flowers \
-    --dataset_name=flowers \
-    --dataset_split_name=validation \
-    --model_name=inception_v1
-
-  * ---> 한 줄로 표현
- $ python eval_image_classifier.py -–alsologtostderr  --checkpoint_path=/home/opencv-mds/tf_ssd/tod/trained --dataset_dir=/home/opencv-mds/tf_ssd/tod/flowers  --dataset_name=flowers  --dataset_split_name=validation --model_name=inception_v1
-
 
 # 3 SSD Object Detection
 
-동일한 train_model 폴더에서 진행
 
 # pycocotools, protocbuf install
 
@@ -185,7 +97,7 @@ $ cd cocoapi/PythonAPI
 
 $ make
 
-$ cp -r pycocotools ~/tf_ssd/tod/train_models/research/
+$ cp -r pycocotools /tf_ssd/tod/train_models/research/
 
 
 -----protocbuf install -------
@@ -240,7 +152,7 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 ++++++++++++++++++++++++++++++++++++++++++
 
-수정된 config 예 : vBox에 coco_val.record 가 없어서 동일하게 coco_train.record 을 사용함.
+수정된 config 예 : 
 
 - 훈련 데이터 관련 train_input_reader
 
@@ -248,7 +160,7 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 170 tf_record_input_reader {
 
-171 input_path: "/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
+171 input_path: "/tf_ssd/tfrecords/coco_train.record-?????-of-00100"
 
 172 }
 
@@ -263,7 +175,7 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 184 tf_record_input_reader {
 
-185 input_path: "/tf_ssd/tfrecord/coco_train.record-?????-of-00100"
+185 input_path: "/tf_ssd/tfrecords/coco_val.record-?????-of-00100"
 
 186 }
 
