@@ -11,11 +11,7 @@ NEED more than 1080ti ...
 
 # 1. venv setting
 
-sudo apt-get install python2.7-dev python3-dev -y
-
-sudo apt install protobuf-compiler python-tk python3-tk -y
-
-sudo apt install python-pip python3-pip -y
+sudo apt-get install python2.7-dev python3-dev protobuf-compiler python-tk python3-tk  python-pip python3-pip -y
 
 ## install virtualenv
 
@@ -37,11 +33,8 @@ source venvssd/bin/activate
 
 # 2-0 install package
 
-pip install tensorflow==1.14.0 Cython contextlib2 matplotlib pillow lxml
+pip install tensorflow==1.14.0 Cython contextlib2 matplotlib pillow lxml gast==0.2.2
 
-$ sudo apt-get update
-
-pip install gast==0.2.2
 
 # 2-1 Tensorflow TEST
 
@@ -63,7 +56,8 @@ chmod +x mnist_cnn.py
 
 python mnist_cnn.py
 
-# 2-2 Tensorflow slim TEST
+
+# 2-2 Install Tensorflow Object Detection API
 
 $ cd /tf_ssd/
 
@@ -88,6 +82,7 @@ git checkout 5ed215b2ae0fd9650d1650953afcffdd23bb28f6
 -----pycocotools install -----
 
 $ cd /tf_ssd/tod/train_models/research
+
 
 $ export PYTHONPATH=$PYTHONPATH:/tf_ssd/tod/train_models/research:/tf_ssd/tod/train_models/research/slim
 
@@ -123,7 +118,7 @@ $ python object_detection/builders/model_builder_test.py
 
 * ctl-alt-t to open onother terminal.
 
-cd tf_ssd/
+cd /tf_ssd/
 
 scp ?? /tfrecord.zip ./
 
