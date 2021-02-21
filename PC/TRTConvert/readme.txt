@@ -3,7 +3,7 @@
 현업에서는 한번 만들어서 계속 사용하면 됩니다.
 
 sudo nvidia-docker run --name TFTRT -it -d --net=host \
- -v "/tf_ssd:/ssd_ws" \
+ -v "/tf_ssd:/tf_ssd" \
  nvcr.io/nvidia/tensorrt:19.01-py3
  
  혹시 에러가 나면 
@@ -37,13 +37,13 @@ pip install grpcio==1.11.0
 
 # cd /workspace/tensorrt/samples/sampleUffSSD
 
-# convert-to-uff --input-file /ssd_ws/convert/frozen_inference_graph.pb -O NMS -p /ssd_ws/convert/config.py
+# convert-to-uff --input-file /tf_ssd/convert/frozen_inference_graph.pb -O NMS -p /tf_ssd/convert/config.py
 
-* ===> UFF Output written to /ssd_ws/convert/frozen_inference_graph.uff
+* ===> UFF Output written to /tf_ssd/convert/frozen_inference_graph.uff
  
 * frozen_inference_graph.uff 가 생성되면 /workspace/tensorrt/data/ssd 폴더로 이동시킨
 
-# cp /ssd_ws/convert/frozen_inference_graph.uff /workspace/tensorrt/data/ssd/sample_ssd_relu6.uff
+# cp /tf_ssd/convert/frozen_inference_graph.uff /workspace/tensorrt/data/ssd/sample_ssd_relu6.uff
 
 # ls /workspace/tensorrt/data/ssd
 
@@ -68,7 +68,7 @@ pip install grpcio==1.11.0
 # ./sample_uff_ssd
 
 * and check the output files.
-cp car-*.ppm /ssd_ws/
+cp car-*.ppm /tf_ssd/ppm
 
 
 
