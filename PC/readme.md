@@ -1,4 +1,4 @@
-# guide for PC (no gpu)
+# guide for PC (with GPU)
 
 ssd_traing_export
 #######################################################
@@ -9,14 +9,12 @@ So it can NEVER be perfect training !!
 
 #######################################################
 
-# 1. venv setting
-sudo apt install protobuf-compiler python3-tk -y
+# docker image pull
 
-sudo apt install python3-pip
+sudo nvidia-docker pull tensorflow/tensorflow:1.15.3-gpu-py3-jupyter
 
-## install virtualenv
 
-sudo apt install virtualenv -y
+## make folder for docker container
 
 cd /
 
@@ -26,21 +24,35 @@ cd tf_ssd
 
 sudo chmod 777 .
 
-virtualenv venvssd
-
-source venvssd/bin/activate
-
 #########################################
+
+# docker container
+
+sudo nvidia-docker run --name TFSSD -it -d --net=host \
+ -v "/tf_ssd:/rf_ssd" \
+ tensorflow/tensorflow:1.15.3-gpu-py3-jupyter
+
+sudo docker exec -it TFSSD /bin/bash
+
+sudo docker restart TFSSD
 
 # 2-0 install package
 
-pip install tensorflow==1.14.0 Cython contextlib2 matplotlib pillow lxml
 
-$ sudo apt-get update
 
-$ sudo apt install python-tk python3-tk -y
 
-$ pip install gast==0.2.2
+
+
+
+
+
+
+
+
+
+
+
+
 
 # 2-1 Tensorflow TEST
 
