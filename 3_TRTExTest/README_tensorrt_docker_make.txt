@@ -3,6 +3,9 @@
 
 docker pull nvcr.io/nvidia/tensorrt:19.03-py3
 
+sudo nvidia-docker run -it -d --name TENSORRT5 --net=host -v /mnt/39tb_hdd:/data nvcr.io/nvidia/tensorrt:19.01-py3
+sudo docker exec -it TENSORRT5 /bin/bash
+
 alias 작성 요망 
 
 2. ~/.bashrc 에 Container alias 추가
